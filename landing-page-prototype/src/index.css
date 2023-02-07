@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  
 }
 
 body {
@@ -9,8 +10,21 @@ body {
 }
 
 .main {
-  width: 100%;
+  width: auto;
   height: 100vh;
+}
+
+video::before {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000000;
+  mix-blend-mode: difference;
+  z-index: -1;
 }
 
 video {
@@ -20,19 +34,58 @@ video {
 }
 
 .content {
-  position: absolute;
+  position: relative;
   width: 100%;
-  height: 100%;
-  top: 0;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-start; */
   align-items: middle;
+  font-style: italic;
+  bottom: 60%;
+  left: 30%;
+  line-height: 45%;
+  background-color: transparent;
+  color: #ffffff;
+  mix-blend-mode: difference;
+}
+
+.content h1 {
+  font-size: 700%;
+
+}
+
+.content p1 {
+  position: fixed;
+  left: 35%;
+  top: 50%;
+  font-size: 140%;
+}
+
+.login, .sign-up {
   color: white;
-  font-size: 300%;
-  left: 20%;
-  /* top: 400px; */
-  top: 40%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 10px 5%;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 150%;
+  border: 2px solid lightgray;
+  top: 54%;
+}
+
+.login:hover, .sign-up:hover {
+  text-decoration: none;
+  background-color: white;
+  color: black;
+}
+
+.login {
+  left: 35%;
+}
+
+.sign-up {
+  left: 51%;
 }
 
 .overlay {
