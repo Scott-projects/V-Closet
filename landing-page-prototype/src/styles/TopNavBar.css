@@ -4,7 +4,7 @@
 }
 
 .navbar-nav {
-    font-size: 500%;
+    font-size: 400%;
 }
 
 a {
@@ -20,4 +20,5 @@ ul > li {
 .navbar-gear, .navbar-toggle {
     width: 5%;
     float: right;
+    padding: 1%;
 }
