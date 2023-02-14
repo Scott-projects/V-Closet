@@ -1,15 +1,19 @@
 import React from 'react'
-import ToggleMode from '../components/ToggleMode';
 import ImageUploader from '../components/ImageUploader';
-import './LoginPage.css'
+import TopNavBar from '../components/TopNavBar';
+import '../styles/LoginPage.css'
 
 function LoginPage() {
 
     return (
+
         <div className='login-test'>
-            <h1>Login Page (Test Page)</h1>
-            <ImageUploader />
-            <ToggleMode />
+            <div class="triangle-container">
+                <div class="triangle"></div>
+            </div>
+            <TopNavBar />
+            <h1 className='logintext'>Login Page (Test Page)</h1>
+            {/* <ImageUploader /> */}
         </div>
     )
 }

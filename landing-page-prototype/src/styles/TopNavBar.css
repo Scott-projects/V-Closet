@@ -1,0 +1,23 @@
+
+.navbar-menu {
+    padding: 1%;
+}
+
+.navbar-nav {
+    font-size: 500%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+ul > li {
+    display: inline-block;
+}
+
+.navbar-gear, .navbar-toggle {
+    width: 5%;
+    float: right;
+}
