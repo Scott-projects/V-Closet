@@ -13,7 +13,7 @@ const TopNavBar = () => {
                     <Link className='homeIcon' to="/"><AiOutlineHome /></Link>
                 </li>
                 <li className='navbar-gear'>
-                    <BsGear /> {/**Directs to settings page */}
+                    <Link className='settingsIcon' to="/settings"><BsGear /></Link>
                 </li>
                 <li className='navbar-toggle'>
                     <ToggleMode />
