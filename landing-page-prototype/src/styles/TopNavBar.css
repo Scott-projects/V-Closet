@@ -1,24 +1,23 @@
-
 .navbar-menu {
     padding: 1%;
+    width: auto;
 }
 
 .navbar-nav {
-    font-size: 400%;
+    font-size: 5vw;
 }
 
-a {
+.homeIcon, .settingsIcon {
     text-decoration: none;
     color: inherit;
     cursor: pointer;
 }
 
-ul > li {
+.navbar-nav > .navbar-home, .navbar-toggle, .navbar-gear {
     display: inline-block;
 }
 
 .navbar-gear, .navbar-toggle {
-    width: 4%;
     float: right;
-    padding: 4px;
+    padding-left: 1%;
 }
