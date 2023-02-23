@@ -1,5 +1,6 @@
 import React from 'react'
 import ImageUploader from '../components/ImageUploader';
+import ToggleMode from '../components/ToggleMode';
 import TopNavBar from '../components/TopNavBar';
 import '../styles/LoginPage.css'
 
