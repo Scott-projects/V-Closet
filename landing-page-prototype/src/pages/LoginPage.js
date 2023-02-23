@@ -1,7 +1,8 @@
 import React from 'react'
-import ToggleMode from '../components/ToggleMode';
 import ImageUploader from '../components/ImageUploader';
-import './LoginPage.css'
+import ToggleMode from '../components/ToggleMode';
+import TopNavBar from '../components/TopNavBar';
+import '../styles/LoginPage.css'
 
 function LoginPage() {
     const REDIRECT_ON_SIGNIN = '/wardrobe';
@@ -16,6 +17,9 @@ function LoginPage() {
 
     return ( // TODO IMPLEMENT LOGIN STATE FOR DIALOG
         <div className='login-test'>
+            <div class="triangle-container">
+                <div class="triangle"></div>
+            </div>
             <h1>Login Page (Test Page)</h1>
             <ImageUploader />
             <ToggleMode />
