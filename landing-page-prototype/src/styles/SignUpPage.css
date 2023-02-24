@@ -1,24 +1,3 @@
 .signup-text {
     font-size: 500%;
 }
-
-.triangle-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow: hidden;
-    z-index: -1;
-    margin-left: -5%;
-  }
-
-  .triangle {
-    height: 0;
-    width: 0;
-    position: absolute;
-    border-left: 50vw solid transparent;
-    border-right: 60vw solid transparent;
-    border-top: 130vh solid gray;
-
-  }
