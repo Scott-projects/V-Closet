@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {FiSun} from 'react-icons/fi';
 import {FiMoon} from 'react-icons/fi';
-import ShapeContainer from "./ShapeContainer";
 
 const ToggleMode = () => {
   const [isDarkMode, setDarkMode] = useState(false);
@@ -20,7 +19,16 @@ const ToggleMode = () => {
           cursor: pointer;
         }
       `}</style>
-      <ShapeContainer color= {isDarkMode ? "black" : "gray"}/> 
+      <style jsx global>{`
+        .navbar-menu {
+          background-color: ${isDarkMode ? "rgba(51, 51, 51, 0.2)" : "rgba(255, 255, 255, 0.2)"};
+          border-bottom: 3px solid ${isDarkMode ? "#fff" : "#333"}
+        }
+        .shapeStyle {
+          color: ${isDarkMode ? "rgba(24, 24, 24)" : "silver"}
+        }
+      `}
+      </style>
     </div>
   );
 };

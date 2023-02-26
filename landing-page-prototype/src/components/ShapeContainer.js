@@ -29,7 +29,7 @@ function ShapeContainer({ color }) {
     }
 
     return (
-        <div style={styles}>
+        <div className='shapeStyle' style={styles}>
             <Triangle />
         </div>
     );

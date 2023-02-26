@@ -1,6 +1,9 @@
 .navbar-menu {
-    padding: 1%;
-    width: auto;
+    padding-top: 1%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 999;
 }
 
 .navbar-nav {
@@ -17,7 +20,12 @@
     display: inline-block;
 }
 
+.navbar-home {
+    padding-left: 1%;
+}
+
 .navbar-gear, .navbar-toggle {
     float: right;
-    padding-left: 1%;
+
+    padding-right: 1%;
 }
