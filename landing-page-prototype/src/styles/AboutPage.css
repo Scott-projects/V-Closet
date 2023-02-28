@@ -1,6 +1,50 @@
-.about-text {
-    font-size: 500%;
-    margin-top: 8%;
-    padding-left: 1%;
+.about-page {
+    padding-bottom: 3%;
+    margin-top: 10%;
+    font-size: 200%;
 }
 
+.about-history {
+    padding-bottom: 3%;
+    margin-left: 10%;
+    margin-right: 55%;
+    text-align: center;
+}
+
+.history-p {
+    padding: 1%;
+    padding-top: 3%;
+    display: block;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.about-mission {
+    padding-bottom: 3%;
+    margin-right: 10%;
+    margin-left: 55%;
+    text-align: center;
+}
+
+.mission-p {
+    padding: 1%;
+    padding-top: 3%;
+    display: block;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.about-vision {
+    padding-bottom: 3%;
+    margin-left: 10%;
+    margin-right: 55%;
+    text-align: center;
+}
+
+.vision-p {
+    padding: 1%;
+    padding-top: 3%;
+    display: block;
+    text-align: center;
+    line-height: 1.5;
+}

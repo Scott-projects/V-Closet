@@ -21,7 +21,7 @@ const ToggleMode = () => {
       `}</style>
       <style jsx global>{`
         .navbar-menu {
-          background-color: ${isDarkMode ? "rgba(51, 51, 51, 0.2)" : "rgba(255, 255, 255, 0.2)"};
+          background-color: ${isDarkMode ? "rgba(51, 51, 51)" : "rgba(255, 255, 255)"};
           border-bottom: 3px solid ${isDarkMode ? "#fff" : "#333"}
         }
         .shapeStyle {

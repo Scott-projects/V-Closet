@@ -15,7 +15,7 @@ function ShapeContainer({ color }) {
         const triangleStyle = {
             height: 0,
             width: 0,
-            position: 'absolute',
+            position: 'fixed',
             borderLeft: '50vw solid transparent',
             borderRight: '50vw solid transparent',
             borderTop: `130vh solid ${color}`,
