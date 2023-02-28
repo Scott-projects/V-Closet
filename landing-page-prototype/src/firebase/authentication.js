@@ -15,6 +15,7 @@ const AuthUserContext = createContext({
     isLoading: true // firebase fetching data upon opeing app
 });
 
+
 //TODO: IMPLEMENT SIGN OUT
 export default function useFirebaseAuth() {
     const [authUser, setAuthUser] = useState(null);

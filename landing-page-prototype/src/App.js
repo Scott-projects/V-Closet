@@ -1,9 +1,11 @@
 import Main from './components/Main';
-
+import { AuthUserProvider } from './firebase/authentication';
 function App() {
   return (
     <div className="App">
-      <Main />
+      <AuthUserProvider>
+        <Main />
+      </AuthUserProvider>
     </div>
   );
 }

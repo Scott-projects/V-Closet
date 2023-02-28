@@ -21,5 +21,5 @@ export function getUserLocation(){
             error = 'We encountered an error in retrieving your location, please re-try.'
         }
     }
-    //TODO return foo
+    //TODO return weather information foo
 }
