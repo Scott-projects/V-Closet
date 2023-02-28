@@ -14,7 +14,7 @@ const Main = () => {
                 </div>
                 <div className='buttons'>
                     <Link to="/login"><button className='login'>Login</button></Link>
-                    <Link to="/about"><button className='sign-up'>Sign Up</button></Link>
+                    <Link to="/signup"><button className='sign-up'>Sign Up</button></Link>
                 </div>
             </div>
         </body>
