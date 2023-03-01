@@ -7,7 +7,7 @@ const Main = () => {
         <body className='overflow'>
             <div className='main'>
                 <div className="overlay"></div>
-                <video src={videobg} autoPlay loop muted />
+                <video className='landingVideo' src={videobg} autoPlay loop muted />
                 <div className="content">
                     <h1>V-Closet</h1>
                     <p1>Virtualize your closet, elevate your drip.</p1>
