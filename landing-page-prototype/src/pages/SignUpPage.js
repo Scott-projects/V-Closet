@@ -5,6 +5,7 @@ import '../styles/SignUpPage.css'
 function SignUpPage() {
     return (
         <div className='signup'>
+            <div className='overlay'></div>
             <video className='formVideo' src={videobg2} autoPlay muted />
 
                 <div className='formShape'>
