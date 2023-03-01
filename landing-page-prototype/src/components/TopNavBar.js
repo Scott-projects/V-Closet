@@ -12,9 +12,6 @@ const TopNavBar = () => {
                 <li className='navbar-home'>
                     <Link className='homeIcon' to="/"><AiOutlineHome /></Link>
                 </li>
-                <li className='thing'>
-                    <BsGear />
-                </li>
                 <li className='navbar-gear'>
                     <Link className='settingsIcon' to="/settings"><BsGear /></Link>
                 </li>

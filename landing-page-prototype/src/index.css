@@ -21,58 +21,48 @@
 }
 
 .content {
-  position: relative;
-  width: 100%;
+  position: fixed;
   max-width: 800px;
-  display: flex;
-  flex-direction: column;
-  align-items: middle;
   font-style: italic;
-  bottom: 60%;
+  bottom: 50%;
   left: 30%;
-  line-height: 45%;
-  background-color: transparent;
   color: #ffffff;
   mix-blend-mode: difference;
 }
 
 .content h1 {
-  font-size: 700%;
-
+  font-size: 17vh;
 }
 
 .content p1 {
   position: fixed;
-  left: 35%;
-  top: 50%;
-  font-size: 140%;
+  left: 37%;
+  top: 48%;
+  font-size: 3vh;
 }
 
-.login, .sign-up {
-  color: white;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  padding: 10px 5%;
-  margin: 10px;
-  cursor: pointer;
-  font-size: 150%;
-  border: 2px solid lightgray;
+.button-container {
+  position: fixed;
   top: 54%;
+  margin-left: 33%;
+  text-align: center;
 }
 
-.login:hover, .sign-up:hover {
+.button {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid lightgray;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 275%;
+  padding: 10px 4vw;
+  margin: 3% 50px;
+}
+
+.button:hover {
   text-decoration: none;
   background-color: white;
   color: black;
-}
-
-.login {
-  left: 35%;
-}
-
-.sign-up {
-  left: 51%;
 }
 
 .overlay {
