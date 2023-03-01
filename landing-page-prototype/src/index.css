@@ -43,7 +43,7 @@
 
 .button-container {
   position: fixed;
-  top: 54%;
+  top: 55%;
   margin-left: 33%;
   text-align: center;
 }
@@ -54,9 +54,9 @@
   border: 2px solid lightgray;
   border-radius: 10px;
   cursor: pointer;
-  font-size: 275%;
+  font-size: 2vw;
   padding: 10px 4vw;
-  margin: 3% 50px;
+  margin: 3% 1vw;
 }
 
 .button:hover {
