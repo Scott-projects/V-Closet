@@ -8,7 +8,6 @@ import { onAuthStateChanged, authSignOut, GoogleAuthProvider, EmailAuthProvider,
 
 //import react components and other dependencies
 import { createContext, useContext, useEffect, useState } from 'react';
-import * as firebaseui from 'firebaseui';
 
 // Default context
 const AuthUserContext = createContext({
