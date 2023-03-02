@@ -9,7 +9,7 @@ function SignUpPage() {
             <video className='formVideo' src={videobg2} autoPlay muted />
 
                 <div className='formShape'>
-                    Form Placeholder
+                    Sign Up Placeholder
                 </div>
 
         </div>
