@@ -58,3 +58,4 @@ export const signUpwithEmailAndPassword = async (email, password) => {
             const errorMessage = error.message;
         })
 }
+
