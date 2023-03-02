@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 
 // Import additional SDKs and releveant methods
-import { getAnalytics} from "firebase/analytics";
+import { getAnalytics, isSupportedAnalytics} from "firebase/analytics";
 import { getAuth} from "firebase/auth";
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
@@ -24,7 +24,7 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 
 //Initiilize SDKs
-export const analytics = async () => await isSupportedAnalytics() && getAnalytics(app);
+export const analytics = getAnalytics(app);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 export const storage = getStorage(app);

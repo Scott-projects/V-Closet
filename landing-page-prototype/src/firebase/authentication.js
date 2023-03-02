@@ -1,13 +1,14 @@
 /* Authentication for V-Closet is currently only set up for email/password and gmail authentication,*/
 
 // import authorization SDK from firebase.js
-import { auth } from './firebase';
+import { auth} from './firebase';
 
 // import functions from auth
-import {onAuthStateChanged, authSignOut, GoogleAuthProvider, EmailAuthProvider} from 'firebase/auth';
+import { onAuthStateChanged, authSignOut, GoogleAuthProvider, EmailAuthProvider, signInWithEmailAndPassword, createUserWithEmailAndPassword} from 'firebase/auth';
 
-//import react components
+//import react components and other dependencies
 import { createContext, useContext, useEffect, useState } from 'react';
+import * as firebaseui from 'firebaseui';
 
 // Default context
 const AuthUserContext = createContext({
@@ -46,10 +47,19 @@ export default function useFirebaseAuth() {
     };
 }
 
-// auth user provider react component
-export function AuthUserProvider({ children }) {
-    const auth = useFirebaseAuth();
-    return <AuthUserContext.Provider value={auth}>{children}</AuthUserContext.Provider>;
-}
+const provider = new GoogleAuthProvider();
+/*
+export function signInDefault(){
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            // ...
+        })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
 
+}*/
 export const useAuth = () => useContext(AuthUserContext);
