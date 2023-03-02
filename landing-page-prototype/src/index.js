@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './styles/index.css';
 import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
@@ -9,6 +9,7 @@ import SettingsPage from './pages/SettingsPage';
 import AddItemPage from './pages/AddItemPage';
 import AboutPage from './pages/AboutPage';
 import HomePage from './pages/HomePage';
+import WardrobePage from './pages/WardrobePage';
 import MarketPage from './pages/MarketPage';
 
 const router = createBrowserRouter ([
@@ -38,7 +39,11 @@ const router = createBrowserRouter ([
   },
   {
     path: "Home",
-    element: <HomePage />
+    element: <HomePage/>
+  },
+  {
+    path: "Wardrobe",
+    element: <WardrobePage/>
   },
   {
     path: "Market",
