@@ -4,7 +4,7 @@
 import { auth} from './firebase';
 
 // import functions from auth
-import { onAuthStateChanged, authSignOut, GoogleAuthProvider, EmailAuthProvider, signInWithEmailAndPassword, createUserWithEmailAndPassword} from 'firebase/auth';
+import { onAuthStateChanged, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword} from 'firebase/auth';
 
 //import react components and other dependencies
 import { createContext, useContext, useEffect, useState } from 'react';
@@ -46,19 +46,15 @@ export default function useFirebaseAuth() {
     };
 }
 
-const provider = new GoogleAuthProvider();
-/*
-export function signInDefault(){
-    signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            // ...
-        })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
-
-}*/
 export const useAuth = () => useContext(AuthUserContext);
+
+export const signUpwithEmailAndPassword = async (email, password) => {
+    createUserWithEmailAndPassword(auth, email, password)
+        .then((userInfo) => {
+            const user = userInfo.user;
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+        })
+}
