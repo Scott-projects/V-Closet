@@ -12,13 +12,23 @@ const ToggleMode = () => {
       </tag>
       <style jsx>{`
         body {
-          background-color: ${isDarkMode ? "#333" : "#fff"};
-          color: ${isDarkMode ? "#fff" : "#333"};
+          background-color: ${isDarkMode ? "#333" : "#f5f5f5"};
+          color: ${isDarkMode ? "#f5f5f5" : "#333"};
         }
         tag {
           cursor: pointer;
         }
       `}</style>
+      <style jsx global>{`
+        .navbar-menu {
+          background-color: ${isDarkMode ? "rgba(51, 51, 51)" : "#f5f5f5"};
+          border-bottom: 3px solid ${isDarkMode ? "#f5f5f5" : "#333"}
+        }
+        .shapeStyle {
+          color: ${isDarkMode ? "rgba(24, 24, 24)" : "silver"}
+        }
+      `}
+      </style>
     </div>
   );
 };
