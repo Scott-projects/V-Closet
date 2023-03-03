@@ -3,7 +3,8 @@ import { useState } from 'react';
 import videobg2 from '../assets/video2.mp4';
 import '../styles/SignUpPage.css';
 import TopNavBar from '../components/TopNavBar';
-import { signUpwithEmailAndPassword } from '../firebase/authentication';
+import { signUpwithEmailAndPassword, googleSignIn } from '../firebase/authentication';
+import { signInWithPopup } from 'firebase/auth';
 
 const SignUpPage =() => {
     //States for user input
@@ -20,12 +21,13 @@ const SignUpPage =() => {
         } else {
             setEmail("");
             setPassword("");
+            setPasswordCheck("");
             const result = await signUpwithEmailAndPassword(email, password);
             if(result.error){
                 setError(result.error);
             }
         }
-    };
+    }; 
 
     return (
         <>
@@ -42,6 +44,9 @@ const SignUpPage =() => {
                         <input type="password" name="passwordCheck" value={passwordCheck} placeholder="Re-enter your password" required onChange={(change) => setPasswordCheck(change.target.value)} />
                         <button type="submit">Submit</button>
                     </form>
+                    <div>
+                        <button onClick={googleSignIn}>Sign in with google</button>
+                    </div>
                     <p>Are you already registred with us? TODO: IMPLEMENT ROUTER TO LOGIN!</p>
                 </div>
             </div>

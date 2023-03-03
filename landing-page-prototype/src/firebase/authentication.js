@@ -4,7 +4,7 @@
 import { auth} from './firebase';
 
 // import functions from auth
-import { onAuthStateChanged, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword} from 'firebase/auth';
+import { onAuthStateChanged, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 //import react components and other dependencies
 import { createContext, useContext, useEffect, useState } from 'react';
@@ -48,14 +48,36 @@ export default function useFirebaseAuth() {
 
 export const useAuth = () => useContext(AuthUserContext);
 
+// Simple Email and Password sign up
 export const signUpwithEmailAndPassword = async (email, password) => {
     createUserWithEmailAndPassword(auth, email, password)
         .then((userInfo) => {
             const user = userInfo.user;
         })
         .catch((error) => {
+            //Handles errors
             const errorCode = error.code;
             const errorMessage = error.message;
         })
 }
 
+// Google sign up, Handles first time sign in and later logins
+export const oAuthGoogle = new GoogleAuthProvider();
+export const googleSignIn = async () => {
+    signInWithPopup(auth, oAuthGoogle)
+    .then((result) => {
+        // This returns a Google Access Token. It can be used to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+  }).catch((error) => {
+        // Handle Errors
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+  });
+}

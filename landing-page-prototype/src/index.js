@@ -11,6 +11,7 @@ import AboutPage from './pages/AboutPage';
 import HomePage from './pages/HomePage';
 import WardrobePage from './pages/WardrobePage';
 import MarketPage from './pages/MarketPage';
+import AuthUserProvider from './firebase/authentication';
 
 const router = createBrowserRouter ([
   {
