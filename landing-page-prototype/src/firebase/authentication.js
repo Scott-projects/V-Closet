@@ -61,6 +61,10 @@ export const signUpwithEmailAndPassword = async (email, password) => {
         })
 }
 
+export const emailSignIn = async () => {
+    
+}
+
 // Google sign up, Handles first time sign in and later logins
 export const oAuthGoogle = new GoogleAuthProvider();
 export const googleSignIn = async () => {
