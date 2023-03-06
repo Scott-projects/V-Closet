@@ -1,8 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import videobg2 from '../assets/video2.mp4';
+import {FaGoogle} from 'react-icons/fa';
 import '../styles/SignUpPage.css';
-import TopNavBar from '../components/TopNavBar';
 import { signUpwithEmailAndPassword, googleSignIn } from '../firebase/authentication';
 import { signInWithPopup } from 'firebase/auth';
 
@@ -54,12 +55,12 @@ const SignUpPage = () => {
                                 <label for="passwordCheckLabel">Re-enter Password</label>
                                 <input type="password" name="passwordCheck" value={passwordCheck} placeholder="Re-enter your password" required onChange={(change) => setPasswordCheck(change.target.value)} />
                             </div>
-                            <button type="submit">Submit</button>
+                            <button type="submit" className="submitSignUp">Sign Up</button>
                         </form>
                         <div>
-                            <button onClick={googleSignIn}>Sign in with google</button>
+                            <button onClick={googleSignIn} className="googleSignUp"><FaGoogle className='FaGoogle'/> Sign in with Google</button>
                         </div>
-                        <p>Are you already registred with us? TODO: IMPLEMENT ROUTER TO LOGIN!</p>
+                        <p className='registerToLogin'>Already registered with us? <Link to="/login" className='linkToLogin'>Click Here</Link></p>
                     </div>
                 </div>
             </body>

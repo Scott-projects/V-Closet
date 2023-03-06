@@ -59,3 +59,43 @@ input[name="passwordCheck"]:focus {
     display: block;
     padding-bottom: 2%;
 }
+
+.submitSignUp, .googleSignUp {
+    color: #ffffffea;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 170%;
+    padding: 10px 5%;
+    margin-top: 5%;
+    margin-right: 2%;
+    width: 95%;
+    text-align: center;
+}
+
+.submitSignUp:hover, .googleSignUp:hover {
+    text-decoration: none;
+    background-color: white;
+    color: black;
+}
+
+.FaGoogle {
+    padding-right: 3%;
+    font-size: 90%;
+}
+
+.registerToLogin {
+    margin-top: 10%;
+    font-size: 120%;
+    color: #ffffffea; 
+    letter-spacing: 0.05em;
+}
+
+.linkToLogin {
+    color: #ffffffea;
+}
+
+.linkToLogin:hover {
+    color: #ffffffad;
+}
