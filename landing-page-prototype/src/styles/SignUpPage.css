@@ -57,11 +57,12 @@ input[name="passwordCheck"]:focus {
 
 .form-group label {
     display: block;
-    
+
     font-size: 1.5vw;
 }
 
-.submitSignUp, .googleSignUp {
+.submitSignUp,
+.googleSignUp {
     color: #ffffffea;
     background-color: rgba(0, 0, 0, 0.5);
     border: 2px solid lightgray;
@@ -75,7 +76,8 @@ input[name="passwordCheck"]:focus {
     text-align: center;
 }
 
-.submitSignUp:hover, .googleSignUp:hover {
+.submitSignUp:hover,
+.googleSignUp:hover {
     text-decoration: none;
     background-color: white;
     color: black;
@@ -89,7 +91,7 @@ input[name="passwordCheck"]:focus {
 .registerToLogin {
     margin-top: 10%;
     font-size: 1vw;
-    color: #ffffffea; 
+    color: #ffffffea;
     letter-spacing: 0.05em;
 }
 
