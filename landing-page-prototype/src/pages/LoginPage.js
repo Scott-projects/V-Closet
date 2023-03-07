@@ -30,8 +30,6 @@ function LoginPage() {
                     <input type="password" name="password" value={password} placeholder="Your password" required onChange={(change) => setPassword(change.target.value)} />
                     <button type="submit">Submit</button>
                 </form>
-            </div>
-            <div>
                 <button onClick={googleSignIn}>Sign in with google</button>
             </div>
         </div>
