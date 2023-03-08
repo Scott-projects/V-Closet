@@ -1,11 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import videobg2 from '../assets/video2.mp4';
 import { FaGoogle } from 'react-icons/fa';
 import '../styles/SignUpPage.css';
 import { signUpwithEmailAndPassword, googleSignIn } from '../firebase/authentication';
-import { signInWithPopup } from 'firebase/auth';
 
 const SignUpPage = () => {
     //States for user input
@@ -13,6 +12,7 @@ const SignUpPage = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [passwordCheck, setPasswordCheck] = useState("");
+    const navigate = useNavigate();
 
     // Handles the user submit flow
     const handleFlow = async (expectedDefault) => {
@@ -20,12 +20,16 @@ const SignUpPage = () => {
         if (password !== passwordCheck) {
             setError("Both passwords must match! Please make sure you enter the same password.");
         } else {
+            setError("")
             setEmail("");
             setPassword("");
             setPasswordCheck("");
             const result = await signUpwithEmailAndPassword(email, password);
             if (result.error) {
                 setError(result.error);
+            }
+            else {
+               // navigate("/wardrobe");
             }
         }
     };

@@ -46,23 +46,25 @@ export default function useFirebaseAuth() {
     };
 }
 
+export function AuthUserProvider({ children }) {
+    const auth = useFirebaseAuth();
+    return <AuthUserContext.Provider value={auth}>{children}</AuthUserContext.Provider>;
+}
+
 export const useAuth = () => useContext(AuthUserContext);
 
 // Simple Email and Password sign up
 export const signUpwithEmailAndPassword = async (email, password) => {
     createUserWithEmailAndPassword(auth, email, password)
         .then((userInfo) => {
+            // Signed up
             const user = userInfo.user;
         })
         .catch((error) => {
-            //Handles errors
+            // Sign up error
             const errorCode = error.code;
             const errorMessage = error.message;
         })
-}
-
-export const emailSignIn = async () => {
-    
 }
 
 // Google sign up, Handles first time sign in and later logins
@@ -84,4 +86,18 @@ export const googleSignIn = async () => {
         // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
   });
+}
+
+// Simple email and paswword login
+export const emailPasswordLogin = async (email, password) => {
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+      })
+      .catch((error) => {
+        // Sign in error
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
 }

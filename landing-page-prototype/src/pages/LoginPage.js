@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useState, Dialog } from 'react';
+import { useState } from 'react';
 import videobg2 from '../assets/video2.mp4'
 import { FaGoogle } from 'react-icons/fa';
 import '../styles/LoginPage.css';
-import { emailSignIn, googleSignIn } from '../firebase/authentication';
+import { emailPasswordLogin, googleSignIn } from '../firebase/authentication';
 
-function LoginPage() {
+const LoginPage = () => {
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -14,11 +15,12 @@ function LoginPage() {
     const handleFlow = async () => {
         setEmail("");
         setPassword("");
-        const result = await googleSignIn();
+        const result = await emailPasswordLogin(email, password);
         if (result.error) {
             setError(result.error);
         }
-    }
+    };
+
     return (
         <div className='login'>
             <div className='overlay'></div>
@@ -44,7 +46,7 @@ function LoginPage() {
                 <p className='loginToRegister'>Not a Member? <Link to="/signup" className='linkToSignUp'>Click Here</Link></p>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default LoginPage;
