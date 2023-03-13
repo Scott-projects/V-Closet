@@ -3,7 +3,6 @@
     width: 100%;
     position: fixed;
     top: 0;
-    z-index: 999;
 }
 
 .navbar-nav {
@@ -17,15 +16,27 @@
     cursor: pointer;
 }
 
-.navbar-nav > .navbar-home, .navbar-gear, .navbar-toggle, .navbar-clothes {
+.navbar-nav > .navbar-home, .navbar-gear, .navbar-toggle, .navbar-clothes, .navbar-weather {
     display: inline-block;
 }
 
+.navbar-weather {
+    font-size: 1vw;
+    margin-left: 1%;
+    vertical-align: top;
+    width: 10%;
+    word-wrap: break-word;
+}
+
 .navbar-home {
-    padding-left: 1%;
+    margin-left: 1%;
+    height: 1em;
+    overflow: hidden;
 }
 
 .navbar-gear, .navbar-clothes, .navbar-toggle {
     float: right;
-    padding-right: 1%;
+    margin-right: 1%;
+    height: 1em;
+    overflow: hidden;
 }
