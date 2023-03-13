@@ -8,6 +8,7 @@
 .navbar-nav {
     font-size: 4vw;
     width: 100%;
+    list-style: none;
 }
 
 .homeIcon, .settingsIcon, .clothesIcon {
@@ -21,10 +22,11 @@
 }
 
 .navbar-weather {
+    font-weight: 700;
     font-size: 1vw;
     margin-left: 1%;
     vertical-align: top;
-    width: 10%;
+    width: 12%;
     word-wrap: break-word;
 }
 

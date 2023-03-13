@@ -2,6 +2,7 @@ import React, { useState, Dialog } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
 import { emailSignIn, googleSignIn } from '../firebase/authentication';
+import "../styles/LoginSystem.css";
 
 function LoginSystem() {
     const [email, setEmail] = useState("");

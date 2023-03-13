@@ -1,3 +1,7 @@
+.form-group label, .submitSignUp, .googleSignUp, .registerToLogin, .linkToLogin {
+    font-family: Impact, 'Arial Narrow Bold';
+}
+
 input[name="email"],
 input[name="password"],
 input[name="passwordCheck"] {
@@ -29,9 +33,9 @@ input[name="passwordCheck"]:focus {
 
 .form-group label {
     display: block;
-
     font-size: 1.5vw;
 }
+
 
 .submitSignUp,
 .googleSignUp {

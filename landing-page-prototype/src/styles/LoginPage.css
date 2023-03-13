@@ -2,39 +2,5 @@
     padding: 5%;
     font-size: 2.5vw;
     text-align: center;
-}
-
-.submitLogin {
-    color: #ffffffea;
-    background-color: rgba(0, 0, 0, 0.5);
-    border: 2px solid lightgray;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 1.5vw;
-    padding: 10px 5%;
-    margin-top: 5%;
-    margin-right: 2%;
-    width: 95%;
-    text-align: center;
-}
-
-.submitLogin:hover {
-    text-decoration: none;
-    background-color: white;
-    color: black;
-}
-
-.loginToRegister {
-    margin-top: 10%;
-    font-size: 1vw;
-    color: #ffffffea;
     letter-spacing: 0.05em;
-}
-
-.linkToSignUp {
-    color: #ffffffea;
-}
-
-.linkToSignUp:hover {
-    color: #ffffffad;
 }
