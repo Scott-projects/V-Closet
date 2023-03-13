@@ -7,16 +7,17 @@
 }
 
 .navbar-nav {
-    font-size: 5vw;
+    font-size: 4vw;
+    width: 100%;
 }
 
-.homeIcon, .settingsIcon {
+.homeIcon, .settingsIcon, .clothesIcon {
     text-decoration: none;
     color: inherit;
     cursor: pointer;
 }
 
-.navbar-nav > .navbar-home, .navbar-toggle, .navbar-gear {
+.navbar-nav > .navbar-home, .navbar-gear, .navbar-toggle, .navbar-clothes {
     display: inline-block;
 }
 
@@ -24,7 +25,7 @@
     padding-left: 1%;
 }
 
-.navbar-gear, .navbar-toggle {
+.navbar-gear, .navbar-clothes, .navbar-toggle {
     float: right;
     padding-right: 1%;
 }
