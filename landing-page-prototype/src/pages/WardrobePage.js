@@ -7,9 +7,9 @@ import ShapeContainer from "../components/ShapeContainer";
 function WardrobePage() {
     return (
         <div className='wardrobe'>
-            <SideBar />
             {/* <h1 className='wardrobe-text'>Wardrobe Page</h1> */}
             <TopNavBar />
+            <SideBar />
             <ShapeContainer color="" />
         </div>
     )
