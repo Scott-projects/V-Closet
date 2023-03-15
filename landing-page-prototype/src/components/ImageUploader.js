@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import "../styles/ImageUploader.css"
 
 function ImageUploader() {
     const [file, setFile] = useState(null);
@@ -30,9 +31,9 @@ function ImageUploader() {
     }, [previewUrl, fileReader]);
 
     return (
-        <div>
-            <input type='file' onChange={fileSelectedHandler} />
+        <div className='image-container'>
             {previewUrl && <img src={previewUrl} alt='Preview' />}
+            <input type='file' accept="image/png,image/jpeg" onChange={fileSelectedHandler} />
         </div>
     )
 
