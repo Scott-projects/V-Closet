@@ -1,7 +1,7 @@
 import React from "react";
 import TopNavBar from "../components/TopNavBar";
 import ShapeContainer from "../components/ShapeContainer";
-import ImageUploder from "../components/ImageUploader";
+import AddClothes from "../components/AddClothes";
 import '../styles/AddItemPage.css'
 
 function AddItemPage() {
@@ -10,7 +10,7 @@ function AddItemPage() {
             <TopNavBar />
             <ShapeContainer color=""/>
             <h1 className="add-text">Add Item</h1>
-            <ImageUploder />
+            <AddClothes />
         </div>
     )
 }
