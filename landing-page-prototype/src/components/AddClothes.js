@@ -53,7 +53,7 @@ function AddClothes() {
                         <p>You selected: {selectedColor} </p>
                         image result: {image && <img src={saveImage} alt="Uploaded (Test)" />}
 
-                        <h3>What is it good for?</h3>
+                        <h3>Suitability</h3>
                         <input type="checkbox" name="rain" id="rain" value="rain" />
                         <label for="rain"> Rain</label> <br />
                         <input type="checkbox" name="cold" id="cold" value="cold" />

@@ -16,21 +16,26 @@
 
 .add-clothes-information h3{
     font-size: 120%;
-    font-weight: 200;
+    font-weight: 100;
+    letter-spacing: 0.05em;
+}
+
+.add-clothes-information {
+    font-size: 150%;
 }
 
 .add-clothes-information select {
-    font-size: 120%;
+    font-size: 90%;
 }
 
-select option[value="red"] {
+.add-clothes-information option[value="red"] {
     background-color: red;
 }
 
-select option[value="blue"] {
+.add-clothes-information option[value="blue"] {
     background-color: blue;
 } 
 
-select option[value="green"] {
+.add-clothes-information option[value="green"] {
     background-color: green;
 }
