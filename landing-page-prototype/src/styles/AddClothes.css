@@ -1,0 +1,19 @@
+.add-clothes-form {
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-bottom: 2%;
+}
+
+.add-image-container, .add-clothes-information {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.add-image-container {
+    width: 35%;
+    margin-right: 15%;
+}
+
+.add-clothes-information {
+
+}
