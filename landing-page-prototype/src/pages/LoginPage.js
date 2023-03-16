@@ -1,6 +1,5 @@
 import React from 'react';
 import videobg2 from '../assets/video2.mp4'
-import '../styles/LoginPage.css';
 import LoginSystem from '../components/LoginSystem';
 
 function LoginPage() {

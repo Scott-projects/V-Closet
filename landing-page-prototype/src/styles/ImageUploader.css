@@ -1,14 +1,13 @@
-.image-container {
-    width: 25%;
-    height: 30%;
-    overflow: hidden;
-    margin-top: 1%;
-    margin-left: 15%;
-    text-align: right;
+.image-container input, .image-container img {
+    display: block;
+}
+
+
+.image-container input {
+    padding-bottom: 2%;
 }
 
 .image-container img {
-    max-width: 96%;
-    max-height: 100%;
-    border: 5px solid gray;
+    max-width: 97%;
+    height: auto;
 }

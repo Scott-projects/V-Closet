@@ -8,9 +8,12 @@ function AddItemPage() {
     return (
         <div className="Add-Item-Page">
             <TopNavBar />
-            <ShapeContainer color=""/>
+            <ShapeContainer color="" />
             <h1 className="add-text">Add Item</h1>
-            <AddClothes />
+
+            <div className="add-clothes-container">
+                <AddClothes />
+            </div>
         </div>
     )
 }

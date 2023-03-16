@@ -27,6 +27,9 @@ const ToggleMode = () => {
         .shapeStyle {
           color: ${isDarkMode ? "rgba(24, 24, 24)" : "silver"}
         }
+        .image-container img {
+          border: 10px solid ${isDarkMode ? "#f5f5f5" : "#505050"};
+        }
       `}
       </style>
     </div>
