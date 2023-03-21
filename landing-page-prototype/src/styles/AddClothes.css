@@ -16,17 +16,24 @@
 
 .add-clothes-information h3{
     font-weight: 100;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.07em;
 }
 
 .add-clothes-information {
-    font-size: 130%;
+    font-size: 140%;
     margin-top: 1%;
 }
 
 .add-category, .add-color, .add-suitability, .add-description {
-    margin-bottom: 10%;
+    margin-bottom: 5%;
 }
+
+.add-clothes-information select {
+    font-size: 100%;
+    letter-spacing: 0.1em;
+    font-weight: 200;
+}
+
 
 .add-messagebox {
     padding: 2%;
