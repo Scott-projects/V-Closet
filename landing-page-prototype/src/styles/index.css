@@ -1,8 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: Impact, Haettenschweiler, 'Arial', sans-serif;
-  
+  font-family: Haettenschweiler, sans-serif;
 }
 
 .overflow {
@@ -35,10 +34,14 @@
 }
 
 .content p1 {
+  font-size: 3vh;
   position: fixed;
   left: 37%;
   top: 48%;
-  font-size: 3vh;
+}
+
+.content h1, .content p1, .button {
+  font-family: Impact, 'Arial Narrow Bold';
 }
 
 .button-container {

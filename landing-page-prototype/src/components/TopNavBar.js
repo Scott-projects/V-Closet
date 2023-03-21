@@ -13,6 +13,9 @@ const TopNavBar = () => {
                 <li className='navbar-home'>
                     <Link className='homeIcon' to="/home"><AiOutlineHome /></Link>
                 </li>
+                <li className='navbar-weather'>
+                    {/* Display Weather Information */} Rainy, Temp 55 Degrees blah blah orijoeiwfj woiefjwoifj  jaofi afoiaj
+                </li>
                 <li className='navbar-gear'>
                     <Link className='settingsIcon' to="/settings"><BsGear /></Link>
                 </li>

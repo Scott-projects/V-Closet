@@ -1,7 +1,5 @@
-.header-text {
-    padding: 5%;
-    font-size: 2.5vw;
-    text-align: center;
+.form-group label, .submitLogin, .loginToRegister, .linkToSignUp {
+    font-family: Impact, 'Arial Narrow Bold';
 }
 
 .submitLogin {

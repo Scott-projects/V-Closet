@@ -1,0 +1,54 @@
+.add-clothes-form {
+    margin-left: 15%;
+    margin-right: 15%;
+    padding-bottom: 2%;
+}
+
+.add-image-container, .add-clothes-information {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.add-image-container {
+    width: 35%;
+    margin-right: 20%;
+}
+
+.add-clothes-information h3{
+    font-weight: 100;
+    letter-spacing: 0.07em;
+}
+
+.add-clothes-information {
+    font-size: 140%;
+    margin-top: 1%;
+}
+
+.add-category, .add-color, .add-suitability, .add-description {
+    margin-bottom: 5%;
+}
+
+.add-clothes-information select {
+    font-size: 100%;
+    letter-spacing: 0.1em;
+    font-weight: 200;
+}
+
+
+.add-messagebox {
+    padding: 2%;
+    text-align: left;
+    resize: none;
+}
+
+.add-clothes-information option[value="red"] {
+    background-color: red;
+}
+
+.add-clothes-information option[value="blue"] {
+    background-color: blue;
+} 
+
+.add-clothes-information option[value="green"] {
+    background-color: green;
+}
