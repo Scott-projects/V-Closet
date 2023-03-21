@@ -14,6 +14,7 @@ const LoginPage = () => {
     const [error, setError] = useState("");
     const [user, loading, authError] = useAuthState(auth);
     const navigate = useNavigate();
+    
     useEffect(() => {
         if (loading) {
             return;
