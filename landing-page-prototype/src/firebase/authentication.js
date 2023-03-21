@@ -126,3 +126,6 @@ export const emailPasswordLogin = async (email, password) => {
             };
         });
 }
+export const logout = () => {
+    signOut(auth);
+}
