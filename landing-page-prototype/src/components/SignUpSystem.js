@@ -43,11 +43,6 @@ const SignUpSystem = () => {
         }
     };
 
-    const onSubmitHandler = (e) => {
-        e.preventDefault();
-        this.props.history.push("/home");
-    }
-
     return (
         <div>
             {error ? <div>{error}</div> : null}

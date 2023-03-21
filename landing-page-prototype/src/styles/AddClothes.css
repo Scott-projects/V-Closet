@@ -11,21 +11,27 @@
 
 .add-image-container {
     width: 35%;
-    margin-right: 15%;
+    margin-right: 20%;
 }
 
 .add-clothes-information h3{
-    font-size: 120%;
     font-weight: 100;
     letter-spacing: 0.05em;
 }
 
 .add-clothes-information {
-    font-size: 150%;
+    font-size: 130%;
+    margin-top: 1%;
 }
 
-.add-clothes-information select {
-    font-size: 90%;
+.add-category, .add-color, .add-suitability, .add-description {
+    margin-bottom: 10%;
+}
+
+.add-messagebox {
+    padding: 2%;
+    text-align: left;
+    resize: none;
 }
 
 .add-clothes-information option[value="red"] {

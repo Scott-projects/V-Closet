@@ -34,33 +34,41 @@ function AddClothes() {
                     </div>
 
                     <div className="add-clothes-information">
-                        <h3>Category</h3>
-                        <select value={selectedCategory} onChange={handleCategoryChange}>
-                            <option hidden>Select a category</option>
-                            <option value="shirts">Shirts</option>
-                            <option value="pants">Pants</option>
-                            <option value="shoes">Shoes</option>
-                        </select>
-                        <p>You selected: {selectedCategory}</p>
+                        <div className="add-category">
+                            <h3>Category</h3>
+                            <select value={selectedCategory} onChange={handleCategoryChange}>
+                                <option hidden>Select a category</option>
+                                <option value="shirts">Shirts</option>
+                                <option value="pants">Pants</option>
+                                <option value="shoes">Shoes</option>
+                            </select>
+                        </div>
+                        {/* <p>You selected: {selectedCategory}</p> */}
 
-                        <h3>Color</h3>
-                        <select value={selectedColor} onChange={handleColorChange}>
-                            <option hidden>Select the color</option>
-                            <option value="red">Red</option>
-                            <option value="blue">Blue</option>
-                            <option value="green">Green</option>
-                        </select>
-                        <p>You selected: {selectedColor} </p>
-                        image result: {image && <img src={saveImage} alt="Uploaded (Test)" />}
+                        <div className="add-color">
+                            <h3>Color</h3>
+                            <select value={selectedColor} onChange={handleColorChange}>
+                                <option hidden>Select the color</option>
+                                <option value="red">Red</option>
+                                <option value="blue">Blue</option>
+                                <option value="green">Green</option>
+                            </select>
+                        </div>
+                        {/* <p>You selected: {selectedColor} </p> */}
+                        {/* image result: {image && <img src={saveImage} alt="Uploaded (Test)" />} */}
 
-                        <h3>Suitability</h3>
-                        <input type="checkbox" name="rain" id="rain" value="rain" />
-                        <label for="rain"> Rain</label> <br />
-                        <input type="checkbox" name="cold" id="cold" value="cold" />
-                        <label for="cold"> Cold</label> <br />
+                        <div className="add-suitability">
+                            <h3>Suitability</h3>
+                            <input type="checkbox" name="rain" id="rain" value="rain" />
+                            <label for="rain"> Rain</label> <br />
+                            <input type="checkbox" name="cold" id="cold" value="cold" />
+                            <label for="cold"> Cold</label> <br />
+                        </div>
 
-                        <h3>Description</h3>
-                        <input type="text"/>
+                        <div className="add-description">
+                            <h3>Description</h3>
+                            <textarea className="add-messagebox" rows="5" cols="30"/>
+                        </div>
                     </div>
                 </div>
             </form>

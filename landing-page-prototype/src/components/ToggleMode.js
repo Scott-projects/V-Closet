@@ -28,7 +28,7 @@ const ToggleMode = () => {
           color: ${isDarkMode ? "rgba(24, 24, 24)" : "silver"}
         }
         .image-container img {
-          border: 10px solid ${isDarkMode ? "#f5f5f5" : "#505050"};
+          border: 10px solid ${isDarkMode ? "gray" : "#505050"};
         }
       `}
       </style>
