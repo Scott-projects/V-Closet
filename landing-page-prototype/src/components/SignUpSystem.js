@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/SignUpSystem.css';
 import { FaGoogle } from 'react-icons/fa';
 import { signUpwithEmailAndPassword, googleSignIn } from '../firebase/authentication';
@@ -13,6 +13,8 @@ const SignUpSystem = () => {
     const [error, setError] = useState("");
     const [passwordCheck, setPasswordCheck] = useState("");
 
+    const navigate = useNavigate();
+
     // Handles the user submit flow
     const handleFlow = async (expectedDefault) => {
         expectedDefault.preventDefault();
@@ -22,12 +24,29 @@ const SignUpSystem = () => {
             setEmail("");
             setPassword("");
             setPasswordCheck("");
-            const result = await signUpwithEmailAndPassword(email, password);
-            if (result.error) {
-                setError(result.error);
+
+            try {
+                await signUpwithEmailAndPassword(email, password);
+                console.log("Successful");
+                navigate("/home");
             }
+            catch (error) {
+                console.log("Failed");
+            }
+            // if (result.error) {
+            //     // setError(result.error);
+            //     console.log(result.error);
+            // }
+            // else {
+            //     console.log("Test successful");
+            // }
         }
     };
+
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+        this.props.history.push("/home");
+    }
 
     return (
         <div>
