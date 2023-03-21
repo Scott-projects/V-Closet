@@ -1,7 +1,7 @@
 /* Authentication for V-Closet is currently only set up for email/password and gmail authentication,*/
 
 // import authorization SDK from firebase.js
-import { auth} from './firebase';
+import { auth } from './firebase';
 
 // import functions from auth
 import { onAuthStateChanged, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
@@ -39,7 +39,7 @@ export default function useFirebaseAuth() {
         const unsubscribe = onAuthStateChanged(auth, authStateChanged());
         return () => unsubscribe();
     }, []);
-    
+
     return {
         authUser,
         isLoading
@@ -47,8 +47,8 @@ export default function useFirebaseAuth() {
 }
 
 export function AuthUserProvider({ children }) {
-    const auth = useFirebaseAuth();
-    return <AuthUserContext.Provider value={auth}>{children}</AuthUserContext.Provider>;
+    const useAuth = useFirebaseAuth();
+    return <AuthUserContext.Provider value={useAuth}>{children}</AuthUserContext.Provider>;
 }
 
 export const useAuth = () => useContext(AuthUserContext);
@@ -59,11 +59,19 @@ export const signUpwithEmailAndPassword = async (email, password) => {
         .then((userInfo) => {
             // Signed up
             const user = userInfo.user;
+            return {
+                user
+            };
         })
         .catch((error) => {
             // Sign up error
             const errorCode = error.code;
             const errorMessage = error.message;
+            return {
+                errorCode,
+                errorMessage
+            };
+            
         })
 }
 
@@ -71,33 +79,50 @@ export const signUpwithEmailAndPassword = async (email, password) => {
 export const oAuthGoogle = new GoogleAuthProvider();
 export const googleSignIn = async () => {
     signInWithPopup(auth, oAuthGoogle)
-    .then((result) => {
-        // This returns a Google Access Token. It can be used to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
-  }).catch((error) => {
-        // Handle Errors
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-  });
+        .then((result) => {
+            // This returns a Google Access Token. It can be used to access the Google API.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            // The signed-in user info.
+            const user = result.user;
+            return {
+                credential,
+                token
+            };
+        }).catch((error) => {
+            // Handle Errors
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // The email of the user's account used.
+            const email = error.customData.email;
+            // The AuthCredential type that was used.
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            return {
+                errorCode,
+                errorMessage,
+                email,
+                credential
+            };
+        });
 }
 
 // Simple email and paswword login
 export const emailPasswordLogin = async (email, password) => {
     signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-      })
-      .catch((error) => {
-        // Sign in error
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            return {
+                user
+            };
+        })
+        .catch((error) => {
+            // Sign in error
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            return {
+                errorCode,
+                errorMessage
+            };
+        });
 }

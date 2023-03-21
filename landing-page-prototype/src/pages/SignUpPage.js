@@ -1,10 +1,13 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import videobg2 from '../assets/video2.mp4';
 import { FaGoogle } from 'react-icons/fa';
 import '../styles/SignUpPage.css';
 import { signUpwithEmailAndPassword, googleSignIn } from '../firebase/authentication';
+import { auth } from '../firebase/firebase';
+import { useAuthState } from "react-firebase-hooks/auth";
+
 
 const SignUpPage = () => {
     //States for user input
@@ -12,7 +15,17 @@ const SignUpPage = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [passwordCheck, setPasswordCheck] = useState("");
+    const [user, loading, authError] = useAuthState(auth);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if(loading) {
+            return;
+        }
+        if(user){
+            navigate("/wardrobe");
+        }
+    }, [user, loading, navigate]);
 
     // Handles the user submit flow
     const handleFlow = async (expectedDefault) => {
@@ -29,11 +42,11 @@ const SignUpPage = () => {
                 setError(result.error);
             }
             else {
-               // navigate("/wardrobe");
+               navigate("/wardrobe");
             }
         }
     };
-
+    
     return (
         <>
             <div className='signup'>
@@ -42,7 +55,7 @@ const SignUpPage = () => {
                 <div className='formShape'>
                     <h2 className='header-text'>CREATE ACCOUNT</h2>
                     {error ? <div>{error}</div> : null}
-                    {/* <p>Please enter your username and password below:</p> */}
+                    {authError ? <div>{authError}</div> : null}
                     <form onSubmit={handleFlow}>
                         <div className='form-group'>
                             <label for="emailLabel">Email</label>

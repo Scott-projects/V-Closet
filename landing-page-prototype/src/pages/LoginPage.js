@@ -1,22 +1,37 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import videobg2 from '../assets/video2.mp4'
 import { FaGoogle } from 'react-icons/fa';
 import '../styles/LoginPage.css';
 import { emailPasswordLogin, googleSignIn } from '../firebase/authentication';
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from '../firebase/firebase'
 
 const LoginPage = () => {
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const [user, loading, authError] = useAuthState(auth);
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (loading) {
+            return;
+        }
+        if (user) {
+            navigate("/wardrobe");
+        }
+    }, [user, loading, navigate]);
 
     const handleFlow = async () => {
         setEmail("");
         setPassword("");
+        setError("")
         const result = await emailPasswordLogin(email, password);
         if (result.error) {
+            if (authError) {
+                alert(authError);
+            }
             setError(result.error);
         }
     };
