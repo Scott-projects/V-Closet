@@ -4,6 +4,7 @@ import { FaGoogle } from 'react-icons/fa';
 import { emailPasswordLogin, googleSignIn } from '../firebase/authentication';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from '../firebase/firebase'
+import "../styles/LoginSystem.css";
 
 const LoginSystem = () => {
     const [email, setEmail] = useState("");

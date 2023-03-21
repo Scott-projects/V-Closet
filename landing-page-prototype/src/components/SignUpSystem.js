@@ -5,6 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
+import "../styles/SignUpSystem.css";
 
 const SignUpSystem = () => {
     //States for user input
