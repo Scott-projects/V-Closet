@@ -46,12 +46,19 @@ function AddClothes() {
                         {/* <p>You selected: {selectedCategory}</p> */}
 
                         <div className="add-color">
-                            <h3>Color</h3>
-                            <select value={selectedColor} onChange={handleColorChange}>
+                            <h3>Color (Best fits) </h3>
+                            <select value={selectedColor} size="1" onChange={handleColorChange}>
                                 <option hidden>Select the color</option>
                                 <option value="red">Red</option>
-                                <option value="blue">Blue</option>
+                                <option value="orange">Orange</option>
+                                <option value="yellow">Yellow</option>
                                 <option value="green">Green</option>
+                                <option value="blue">Blue</option>
+                                <option value="purple">Purple</option>
+                                <option value="black">Black</option>
+                                <option value="gray">Gray</option>
+                                <option value="white">White</option>
+                                <option value="brown">Brown</option>
                             </select>
                         </div>
                         {/* <p>You selected: {selectedColor} </p> */}

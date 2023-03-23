@@ -5,7 +5,6 @@ import "../styles/SideBar.css";
 const SideBar = () => {
     return (
         <div className="sidebar">
-            <h3 className="closet-heading">My Closet</h3>
             <ul className="side-categories">
                 <li className="side-item">Shirts</li>
                 <li className="side-item">Pants</li>

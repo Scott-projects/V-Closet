@@ -8,7 +8,7 @@ function HomePage() {
         <div className="home-test">
             <TopNavBar />
             <ShapeContainer color=""/>
-            <h1 className="home-text">Home Page</h1>
+            <h1 className="home-text">Welcome back, (Insert user name)</h1>
         </div>
     )
 }
