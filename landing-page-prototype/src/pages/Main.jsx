@@ -13,7 +13,7 @@ const Main = () => {
                     <p1>Virtualize your closet, elevate your drip.</p1>
                 </div>
                 <div className='button-container'>
-                    <Link to="/home"><button className='button'>Login</button></Link>
+                    <Link to="/login"><button className='button'>Login</button></Link>
                     <Link to="/signup"><button className='button'>Sign Up</button></Link>
                 </div>
             </div>

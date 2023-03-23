@@ -16,6 +16,8 @@ const SignUpSystem = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        console.log("signup");
+        console.log(user);
         if (loading) {
             return;
         }
@@ -30,10 +32,7 @@ const SignUpSystem = () => {
         if (password !== passwordCheck) {
             setError("Both passwords must match! Please make sure you enter the same password.");
         } else {
-            setError("")
-            setEmail("");
-            setPassword("");
-            setPasswordCheck("");
+
             const result = await signUpwithEmailAndPassword(email, password);
             if (result.error) {
                 setError(result.error);
@@ -41,6 +40,10 @@ const SignUpSystem = () => {
             else {
                 navigate("/wardrobe");
             }
+            setError("")
+            setEmail("");
+            setPassword("");
+            setPasswordCheck("");
         }
     };
 

@@ -14,16 +14,20 @@ function SettingsPage() {
     const [user, loading] = useAuthState(auth)
 
     useEffect(() => {
+        console.log("settings")
+        console.log(user);
         if (loading) {
+            
             return;
         }
-        if (user) {
-            navigate("/wardrobe");
+        if (!user) {
+            navigate("/");
         }
     }, [user, loading, navigate]);
 
     const handleLogout = async () => {
         logout();
+        navigate("/");
     }
 
     return (
@@ -31,7 +35,7 @@ function SettingsPage() {
             <TopNavBar />
             <ShapeContainer color=""/>
             <h1 className='setting-text'>Settings Page</h1>
-            <button onClick={handleLogout}> Logout </button>
+            <button type="submit" onClick={handleLogout}> Logout </button>
         </div>
     )
 }

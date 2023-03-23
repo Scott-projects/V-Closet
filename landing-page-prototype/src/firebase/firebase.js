@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 
 // Import additional SDKs and releveant methods
-import { getAnalytics, isSupportedAnalytics} from "firebase/analytics";
+import { getAnalytics} from "firebase/analytics";
 import { getAuth} from "firebase/auth";
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
@@ -18,7 +18,6 @@ const firebaseConfig = {
   appId: "1:482526602179:web:5698a2afbd93bee85dd376",
   measurementId: "G-T8YZENSRRP"
 };
-
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
