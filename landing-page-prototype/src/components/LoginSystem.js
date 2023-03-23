@@ -23,9 +23,6 @@ const LoginSystem = () => {
     }, [user, loading, navigate]);
 
     const handleFlow = async () => {
-        setEmail("");
-        setPassword("");
-        setError("")
         const result = await emailPasswordLogin(email, password);
         if (result.error) {
             if (authError) {
