@@ -18,18 +18,23 @@ const LoginSystem = () => {
             return;
         }
         if (user) {
-            navigate("/wardrobe");
+            navigate("/home");
         }
     }, [user, loading, navigate]);
 
-    const handleFlow = async () => {
-        const result = await emailPasswordLogin(email, password);
-        if (result.error) {
-            if (authError) {
-                alert(authError);
+    const handleFlow = async (expectedDefault) => {
+        expectedDefault.preventDefault();
+        setError("");
+        try {
+            emailPasswordLogin(email, password);
+        } catch (e) {
+            if(authError){
+                alert("There was an error with authentication: " + authError);
             }
-            setError(result.error);
+            setError(e);
         }
+        setEmail("");
+        setPassword("");
     };
 
     return (

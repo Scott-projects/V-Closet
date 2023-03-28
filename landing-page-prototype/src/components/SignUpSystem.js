@@ -31,17 +31,19 @@ const SignUpSystem = () => {
         if (password !== passwordCheck) {
             setError("Both passwords must match! Please make sure you enter the same password.");
         } else {
+            try {
+                signUpwithEmailAndPassword(email, password);
+                navigate("/wardrobe")         
+            } catch (e) {
+                if(authError){
+                    alert("There was an error with authentication: " + authError);
+                }
+                setError(e);
+            }
             setError("")
             setEmail("");
             setPassword("");
             setPasswordCheck("");
-            const result = await signUpwithEmailAndPassword(email, password);
-            if (result.error) {
-                setError(result.error);
-            }
-            else {
-                navigate("/wardrobe");
-            }
         }
     };
 
@@ -51,7 +53,6 @@ const SignUpSystem = () => {
             <div className='formShape'>
                 <h2 className='header-text'>CREATE ACCOUNT</h2>
                 {error ? <div>{error}</div> : null}
-                {authError ? <div>{authError}</div> : null}
                 <form onSubmit={handleFlow}>
                     <div className='form-group'>
                         <label for="emailLabel">Email</label>
