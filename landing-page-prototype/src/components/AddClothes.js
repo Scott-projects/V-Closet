@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ImageUploader from "./ImageUploader";
 import "../styles/AddClothes.css";
+import { useAuthState } from "react-firebase-hooks/auth"; 
 
 function AddClothes() {
 

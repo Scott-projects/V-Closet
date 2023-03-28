@@ -2,10 +2,12 @@ import React from "react";
 import TopNavBar from "../components/TopNavBar";
 import ShapeContainer from "../components/ShapeContainer"
 import '../styles/AboutPage.css';
+import { CheckAuthentication } from "../components/CheckAuthentication";
 
 function AboutPage() {
     return (
         <div className="about">
+            <CheckAuthentication />
             <TopNavBar />
             <ShapeContainer color="" />
 
