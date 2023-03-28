@@ -21,7 +21,7 @@ const SignUpSystem = () => {
             return;
         }
         if (user) {
-            navigate("/wardrobe");
+            navigate("/home");
         }
     }, [user, loading, navigate]);
 
@@ -33,7 +33,7 @@ const SignUpSystem = () => {
         } else {
             try {
                 signUpwithEmailAndPassword(email, password);
-                navigate("/wardrobe")
+                //navigate("/home");
             } catch (e) {
                 if (authError) {
                     alert("There was an error with authentication: " + authError);
