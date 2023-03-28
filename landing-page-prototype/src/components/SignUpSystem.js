@@ -33,9 +33,9 @@ const SignUpSystem = () => {
         } else {
             try {
                 signUpwithEmailAndPassword(email, password);
-                navigate("/wardrobe")         
+                navigate("/wardrobe")
             } catch (e) {
-                if(authError){
+                if (authError) {
                     alert("There was an error with authentication: " + authError);
                 }
                 setError(e);
@@ -49,32 +49,28 @@ const SignUpSystem = () => {
 
     return (
         <div className='signup'>
-            <div className='overlay'></div>
-            <div className='formShape'>
-                <h2 className='header-text'>CREATE ACCOUNT</h2>
-                {error ? <div>{error}</div> : null}
-                <form onSubmit={handleFlow}>
-                    <div className='form-group'>
-                        <label for="emailLabel">Email</label>
-                        <input type="email" name="email" value={email} placeholder="yourEmail@provider.com" required onChange={(change) => setEmail(change.target.value)} />
-                    </div>
-
-                    <div className='form-group'>
-                        <label for="passwordLabel">Password</label>
-                        <input type="password" name="password" value={password} placeholder="Your password" required onChange={(change) => setPassword(change.target.value)} />
-                    </div>
-
-                    <div className='form-group'>
-                        <label for="passwordCheckLabel">Re-enter Password</label>
-                        <input type="password" name="passwordCheck" value={passwordCheck} placeholder="Re-enter your password" required onChange={(change) => setPasswordCheck(change.target.value)} />
-                    </div>
-                    <button type="submit" className="submitSignUp">Sign Up</button>
-                </form>
-                <div>
-                    <button onClick={googleSignIn} className="googleSignUp"><FaGoogle className='FaGoogle' /> Sign in with Google</button>
+            {error ? <div>{error}</div> : null}
+            <form onSubmit={handleFlow}>
+                <div className='form-group'>
+                    <label for="emailLabel">Email</label>
+                    <input type="email" name="email" value={email} placeholder="yourEmail@provider.com" required onChange={(change) => setEmail(change.target.value)} />
                 </div>
-                <p className='registerToLogin'>Already registered with us? <Link to="/login" className='linkToLogin'>Click Here</Link></p>
+
+                <div className='form-group'>
+                    <label for="passwordLabel">Password</label>
+                    <input type="password" name="password" value={password} placeholder="Your password" required onChange={(change) => setPassword(change.target.value)} />
+                </div>
+
+                <div className='form-group'>
+                    <label for="passwordCheckLabel">Re-enter Password</label>
+                    <input type="password" name="passwordCheck" value={passwordCheck} placeholder="Re-enter your password" required onChange={(change) => setPasswordCheck(change.target.value)} />
+                </div>
+                <button type="submit" className="submitSignUp">Sign Up</button>
+            </form>
+            <div>
+                <button onClick={googleSignIn} className="googleSignUp"><FaGoogle className='FaGoogle' /> Sign in with Google</button>
             </div>
+            <p className='registerToLogin'>Already registered with us? <Link to="/login" className='linkToLogin'>Click Here</Link></p>
         </div>
     )
 };
