@@ -4,54 +4,7 @@
 import { auth } from './firebase';
 
 // import functions from auth
-import { onAuthStateChanged, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-
-//import react components and other dependencies
-import { createContext, useContext, useEffect, useState } from 'react';
-
-// Default context
-const AuthUserContext = createContext({
-    authUser: null, // assume user not authenticated
-    isLoading: true // firebase fetching data upon opeing app
-});
-
-
-//TODO: IMPLEMENT SIGN OUT
-export default function useFirebaseAuth() {
-    const [authUser, setAuthUser] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
-
-    const authStateChanged = async (user) => {
-        setIsLoading(true);
-        if (!user) { // if user is null set authUser to null and loading stops
-            setAuthUser(null);
-            setIsLoading(false);
-            return;
-        }
-        setAuthUser({ // if user is not null, retrieve login information
-            uid: user.uid,
-            email: user.email
-        });
-        setIsLoading(false);
-    }
-
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, authStateChanged());
-        return () => unsubscribe();
-    }, []);
-
-    return {
-        authUser,
-        isLoading
-    };
-}
-
-export function AuthUserProvider({ children }) {
-    const useAuth = useFirebaseAuth();
-    return <AuthUserContext.Provider value={useAuth}>{children}</AuthUserContext.Provider>;
-}
-
-export const useAuth = () => useContext(AuthUserContext);
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
 
 // Simple Email and Password sign up
 export const signUpwithEmailAndPassword = async (email, password) => {
@@ -125,4 +78,8 @@ export const emailPasswordLogin = async (email, password) => {
                 errorMessage
             };
         });
+}
+
+export const logout = () => {
+    signOut(auth);
 }
