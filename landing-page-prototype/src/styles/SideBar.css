@@ -1,0 +1,17 @@
+.sidebar {
+    position: fixed;
+    font-size: 3vw;
+    margin-top: 10%;
+    margin-left: 2%;
+}
+
+.closet-heading {
+    font-family: Impact, 'Arial Narrow Bold';
+    letter-spacing: 0.10em;
+}
+
+.side-categories {
+    list-style: none;
+    text-align: right;
+    font-weight: 700;
+}

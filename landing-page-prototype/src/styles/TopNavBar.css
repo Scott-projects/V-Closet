@@ -1,0 +1,46 @@
+.navbar-menu {
+    padding-top: 1%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    padding-bottom: 1%;
+}
+
+.navbar-nav {
+    font-size: 4vw;
+    width: 100%;
+    list-style: none;
+}
+
+.homeIcon, .settingsIcon, .clothesIcon {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.navbar-nav > .navbar-home, .navbar-gear, .navbar-toggle, .navbar-clothes, .navbar-weather {
+    display: inline-block;
+}
+
+.navbar-weather {
+    font-weight: 400;
+    font-size: 1.5vw;
+    margin-left: 1%;
+    vertical-align: top;
+    width: 20%;
+    word-wrap: break-word;
+    letter-spacing: 0.05em;
+}
+
+.navbar-home {
+    margin-left: 1%;
+    height: 1em;
+    overflow: hidden;
+}
+
+.navbar-gear, .navbar-clothes, .navbar-toggle {
+    float: right;
+    margin-right: 1%;
+    height: 1em;
+    overflow: hidden;
+}
