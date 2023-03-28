@@ -24,6 +24,20 @@ function AddClothes() {
         setSelectedColor(event.target.value);
     };
 
+    //Suitability
+    const [checkboxes, setCheckboxes] = useState([ //Array of checkboxes
+        { label: "Rain", value: 1, checked: false },
+        { label: "Cold", value: 2, checked: false}
+    ]);
+    const handleSuitabilityChange = (index) => { //Handles boolean value of a checkbox based on index
+        const newCheckboxes = [...checkboxes]; //Uses spread operator to copy new array with updated values
+        newCheckboxes[index].checked = !newCheckboxes[index].checked;
+        setCheckboxes(newCheckboxes); //Updates the state of the array
+    };
+    const selectedOptions = checkboxes
+    .filter((checkbox) => checkbox.checked)
+    .map((checkbox) => checkbox.label)
+
     return (
         <div>
             <form>
@@ -66,15 +80,25 @@ function AddClothes() {
 
                         <div className="add-suitability">
                             <h3>Suitability</h3>
-                            <input type="checkbox" name="rain" id="rain" value="rain" />
+                            {/* <input type="checkbox" name="rain" id="rain" value="rain" />
                             <label for="rain"> Rain</label> <br />
                             <input type="checkbox" name="cold" id="cold" value="cold" />
-                            <label for="cold"> Cold</label> <br />
+                            <label for="cold"> Cold</label> <br /> */}
+                            {checkboxes.map((checkbox, index) => (
+                                <label key={index}>
+                                    <input type="checkbox" checked={checkbox.checked} onChange={() => handleSuitabilityChange(index)}/>
+                                    {" "}{checkbox.label} <br/>
+                                </label>
+                            ))}
+
+                            {selectedOptions.length > 0 && (
+                                <p>You selected: {selectedOptions.join(", ")}</p>
+                            )}
                         </div>
 
                         <div className="add-description">
                             <h3>Description</h3>
-                            <textarea className="add-messagebox" rows="5" cols="30"/>
+                            <textarea className="add-messagebox" rows="5" cols="30" />
                         </div>
                     </div>
                 </div>
