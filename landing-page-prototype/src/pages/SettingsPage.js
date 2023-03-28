@@ -4,9 +4,11 @@ import ShapeContainer from '../components/ShapeContainer';
 import '../styles/SettingsPage.css'
 import { logout } from '../firebase/authentication';
 import { useNavigate } from 'react-router-dom';
+import { CheckAuthentication } from '../components/CheckAuthentication';
 
 function SettingsPage() {
     const navigate = useNavigate();
+
     const handleSignOut = async () => {
         try {
             logout();
@@ -18,6 +20,7 @@ function SettingsPage() {
 
     return (
         <div className='settings-test'>
+            <CheckAuthentication />
             <TopNavBar />
             <ShapeContainer color=""/>
             <h1 className='setting-text'>Settings Page</h1>
