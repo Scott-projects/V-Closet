@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import ImageUploader from "./ImageUploader";
 import "../styles/AddClothes.css";
 import { useAuthState } from "react-firebase-hooks/auth"; 
+import { auth } from "../firebase/firebase";
+import { addClothingItem } from "../firebase/firestore";
 
 function AddClothes() {
+    const [user, loading, authError] = useAuthState(auth);
 
     // Images
     const [image, setImage] = useState(null);
@@ -39,9 +42,13 @@ function AddClothes() {
     .filter((checkbox) => checkbox.checked)
     .map((checkbox) => checkbox.label)
 
+    const handleUpload = (expectedDefault) => {
+        expectedDefault.preventDefault();
+        addClothingItem(user.uid, selectedColor, selectedCategory, checkboxes, image)
+    }
     return (
         <div>
-            <form>
+            <form onClick={handleUpload}>
                 {/* Information about clothes and adds to database*/}
                 <div className="add-clothes-form">
                     <div className="add-image-container">
