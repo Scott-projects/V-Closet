@@ -6,7 +6,7 @@ import { useEffect } from "react";
 export const CheckAuthentication = () => {
     const [ user, loading, authError] = useAuthState(auth);
     const navigate = useNavigate();
-    
+    //console.log(user);
     useEffect(() => {
         if (loading) {
             return;

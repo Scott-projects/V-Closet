@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ImageUploader from "./ImageUploader";
 import "../styles/AddClothes.css";
-import { useAuthState } from "react-firebase-hooks/auth"; 
+import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase";
 import { addClothingItem } from "../firebase/firestore";
 
@@ -31,7 +31,7 @@ function AddClothes() {
     //Suitability
     const [checkboxes, setCheckboxes] = useState([ //Array of checkboxes
         { label: "Rain", value: 1, checked: false },
-        { label: "Cold", value: 2, checked: false}
+        { label: "Cold", value: 2, checked: false }
     ]);
     const handleSuitabilityChange = (index) => { //Handles boolean value of a checkbox based on index
         const newCheckboxes = [...checkboxes]; //Uses spread operator to copy new array with updated values
@@ -39,16 +39,25 @@ function AddClothes() {
         setCheckboxes(newCheckboxes); //Updates the state of the array
     };
     const selectedOptions = checkboxes
-    .filter((checkbox) => checkbox.checked)
-    .map((checkbox) => checkbox.label)
+        .filter((checkbox) => checkbox.checked)
+        .map((checkbox) => checkbox.label)
 
     const handleUpload = (expectedDefault) => {
         expectedDefault.preventDefault();
-        addClothingItem(user.uid, selectedColor, selectedCategory, checkboxes, image)
+        try {
+            addClothingItem(user.uid, selectedColor, selectedCategory, checkboxes, image);
+        } catch (error) {
+            alert("There was an error adding the Clothing Item to your wardrobe: " + error);
+        }
+        setImage("");
+        setSelectedCategory("");
+        setSelectedColor("");
+      //  setCheckboxes([]);
     }
+
     return (
         <div>
-            <form onClick={handleUpload}>
+            <form onSubmit={handleUpload}>
                 {/* Information about clothes and adds to database*/}
                 <div className="add-clothes-form">
                     <div className="add-image-container">
@@ -94,8 +103,8 @@ function AddClothes() {
                             <label for="cold"> Cold</label> <br /> */}
                             {checkboxes.map((checkbox, index) => (
                                 <label key={index}>
-                                    <input type="checkbox" checked={checkbox.checked} onChange={() => handleSuitabilityChange(index)}/>
-                                    {" "}{checkbox.label} <br/>
+                                    <input type="checkbox" checked={checkbox.checked} onChange={() => handleSuitabilityChange(index)} />
+                                    {" "}{checkbox.label} <br />
                                 </label>
                             ))}
 
@@ -108,6 +117,7 @@ function AddClothes() {
                             <h3>Description</h3>
                             <textarea className="add-messagebox" rows="5" cols="30" />
                         </div>
+                        <button type="submit">Submit</button>
                     </div>
                 </div>
             </form>
