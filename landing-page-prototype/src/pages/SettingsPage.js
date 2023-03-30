@@ -12,7 +12,7 @@ import CurrentWeather from '../components/current-weather';
 
 function SettingsPage() {
     const navigate = useNavigate();
-
+    
     const handleSignOut = async () => {
         try {
             logout();
@@ -21,11 +21,7 @@ function SettingsPage() {
             alert("There was an error signing out: " + error);
         }
     }
-
-}
-
-function SettingsPage() {
-
+    
     const [currentWeather, setCurrentWeather] = useState(null);
 
     const handleOnSearchChange = (searchData) => {
