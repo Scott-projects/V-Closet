@@ -1,0 +1,9 @@
+.weather {
+    font-size: 12px;
+    padding: 2px;
+}
+
+.details {
+    display: inline-block;
+    margin: 5px;
+}
