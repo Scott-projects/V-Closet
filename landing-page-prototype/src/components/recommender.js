@@ -11,17 +11,29 @@ const Recommender = () => {
     const outerwear = Array("parka", "puffer jacket", "raincoat", "windbreaker");
 
     let outfit = [];
+    let outfitString = "";
 
-    if (high <= 32) {
+    if (high <= 40) {
         outfit.push(sweaters[1], shirts[1], outerwear[1]);
     }
-    else
-        outfit.push(sweaters[2], shirts[1]);
+    else {
+        outfit.push(sweaters[2], shirts[0]);
+    }
+
+    let i = 0;
+    outfitString += outfit[i];
+
+    for (let i = 1; i < (outfit.length-1); i++) {
+        outfitString += ", " + outfit[i];
+    }
+
+    i = outfit.length-1;
+    outfitString += " & a " + outfit[i];
 
     return (
         <div>
             <p>
-                You should wear a {outfit[0]}, {outfit[1]}, {outfit[2]}
+                You should wear a {outfitString}.
             </p>
         </div>
     );
