@@ -3,23 +3,29 @@ export function getUserLocation(){
     
     // Success
     function useWeatherAPI(position) { 
-        latitude = position.coordinates.latitude;
-        longitude = position.coordinates.longitude;
-        fetch("https://api.weather.gov/points/{latitude},{longitude}")
-            .then((response) => response.json())
-            .then((weatherData) => {
-                //TODO: got the weather object, not sure what to do next haha
-            })
+        let latitude = position.coords.latitude;
+        let longitude = position.coords.longitude;
+        
+        let locationData = fetch("https://api.weather.gov/points/{latitude},{longitude}");
+            locationData.then(response => response.json())
+                        .then((data) => {
+                            const weatherURL = data.properties.forecast;
+
+                            console.log(weatherURL.shortForecast)});
+                        
     }
+    
 
     // Failure
     function handleError() { 
         if (!navigator.geolocation) {
-            error = 'Geolocation is not supported by your browser.';
+            let error = 'Geolocation is not supported by your browser.';
         }
         else {
-            error = 'We encountered an error in retrieving your location, please re-try.'
+            let error = 'We encountered an error in retrieving your location, please re-try.'
         }
     }
     //TODO return weather information foo
+
+
 }
