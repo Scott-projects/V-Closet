@@ -22,8 +22,7 @@ const WeatherValue = () => {
                 <div className="weather-info">
                     <p>{city}   </p>
                     <p>{description}</p>
-                    <p>High of {Math.round(high)}F</p>
-                    <p>Low of {Math.round(low)}F</p>
+                    <p>{Math.round(high)}&deg; F / {Math.round(low)}&deg; F</p>
                 </div>
             </div>
         </div>

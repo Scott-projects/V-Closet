@@ -27,7 +27,8 @@
     margin-left: 1%;
     vertical-align: top;
     width: 20%;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
 }
 
 .navbar-home {
