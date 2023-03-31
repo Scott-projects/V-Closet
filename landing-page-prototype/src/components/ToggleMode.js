@@ -28,14 +28,20 @@ const ToggleMode = () => {
       `}</style>
       <style jsx global>{`
         .navbar-menu {
-          background-color: ${isDarkMode ? "rgba(51, 51, 51)" : "#f5f5f5"};
+          background-color: ${isDarkMode ? "#333" : "#f5f5f5"};
           border-bottom: 3px solid ${isDarkMode ? "#f5f5f5" : "#333"}
         }
         .shapeStyle {
-          color: ${isDarkMode ? "rgba(24, 24, 24)" : "silver"}
+          color: ${isDarkMode ? "#181818" : "silver"}
         }
         .image-container img {
           border: 10px solid ${isDarkMode ? "gray" : "#505050"};
+        }
+        .weather-icon {
+          background-color: ${isDarkMode ? "#f5f5f5" : "#333"};
+        }
+        .weather-icon img {
+          filter: drop-shadow(0 0 4px ${isDarkMode ? "#181818" : "#f5f5f5"});
         }
       `}
       </style>

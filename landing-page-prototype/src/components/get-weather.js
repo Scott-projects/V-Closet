@@ -15,11 +15,16 @@ const WeatherValue = () => {
     return (
         <div className="weather">
             <div className="details">
-                <p>{city}   </p>
-                <p>{description}</p>
-                <p>High of {Math.round(high)}F</p>
-                <p>Low of {Math.round(low)}F</p>
-                <img src={imgSource} alt="weather image"/>
+                <div className="weather-icon">
+                    <img src={imgSource} alt="weather image" />
+                </div>
+
+                <div className="weather-info">
+                    <p>{city}   </p>
+                    <p>{description}</p>
+                    <p>High of {Math.round(high)}F</p>
+                    <p>Low of {Math.round(low)}F</p>
+                </div>
             </div>
         </div>
     );
