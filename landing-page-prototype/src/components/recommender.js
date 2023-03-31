@@ -27,8 +27,7 @@ const Recommender = () => {
         outfitString += ", " + outfit[i];
     }
 
-    i = outfit.length-1;
-    outfitString += " & a " + outfit[i];
+    outfitString += " & a " + outfit[outfit.length-1];
 
     return (
         <div>
