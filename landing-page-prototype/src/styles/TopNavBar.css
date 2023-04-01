@@ -3,11 +3,10 @@
     width: 100%;
     position: fixed;
     top: 0;
-
 }
 
 .navbar-nav {
-    font-size: 4vw;
+    font-size: 4.5vw;
     width: 100%;
     list-style: none;
 }
@@ -23,12 +22,11 @@
 }
 
 .navbar-weather {
-    font-weight: 400;
     margin-left: 1%;
     vertical-align: top;
     width: 20%;
     letter-spacing: 0.02em;
-    line-height: 1.4;
+    line-height: 1.1;
 }
 
 .navbar-home {

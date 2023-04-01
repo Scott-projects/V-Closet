@@ -38,10 +38,10 @@ const ToggleMode = () => {
           border: 10px solid ${isDarkMode ? "gray" : "#505050"};
         }
         .weather-icon {
-          background-color: ${isDarkMode ? "#f5f5f5" : "#333"};
+          // background-color: ${isDarkMode ? "#f5f5f5" : "#333"};
         }
         .weather-icon img {
-          filter: drop-shadow(0 0 4px ${isDarkMode ? "#181818" : "#f5f5f5"});
+          filter: drop-shadow(0 0 2px ${isDarkMode ? "#f5f5f5" : "#181818"});
         }
       `}
       </style>
