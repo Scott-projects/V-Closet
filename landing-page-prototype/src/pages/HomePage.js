@@ -11,8 +11,8 @@ function HomePage() {
    
     
     return (
+            <CheckAuthentication>
         <div className="home-test">
-            <CheckAuthentication />
             <TopNavBar />
             <ShapeContainer color=""/>
             <h1 className="home-text">Home Page</h1>
@@ -21,6 +21,7 @@ function HomePage() {
                 <Recommender/>
             </div>
         </div>
+        </CheckAuthentication>
     )
 }
 

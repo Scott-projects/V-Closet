@@ -7,13 +7,14 @@ import { CheckAuthentication } from "../components/CheckAuthentication";
 
 function WardrobePage() {
     return (
-        <div className='wardrobe'>
-            <CheckAuthentication />
-            {/* <h1 className='wardrobe-text'>Wardrobe Page</h1> */}
-            <TopNavBar />
-            <SideBar />
-            <ShapeContainer color="" />
-        </div>
+        <CheckAuthentication>
+            <div className='wardrobe'>
+                {/* <h1 className='wardrobe-text'>Wardrobe Page</h1> */}
+                <TopNavBar />
+                <SideBar />
+                <ShapeContainer color="" />
+            </div>
+        </CheckAuthentication>
     )
 }
 
