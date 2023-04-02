@@ -5,7 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
-import { ImSpinner2 } from 'react-icons/im';
+import { ImSpinner9 } from 'react-icons/im';
 import "../styles/SignUpSystem.css";
 
 const SignUpSystem = () => {
@@ -23,7 +23,6 @@ const SignUpSystem = () => {
             return;
         }
         if (user) {
-            // setLoading(true);
             navigate("/home");
         }
     }, [user, loading, navigate]);
@@ -74,7 +73,7 @@ const SignUpSystem = () => {
                     <label for="passwordCheckLabel">Re-enter Password</label>
                     <input type="password" name="passwordCheck" value={passwordCheck} placeholder="Re-enter your password" required onChange={(change) => setPasswordCheck(change.target.value)} />
                 </div>
-                <button type="submit" className="submitSignUp"  disabled={isLoading}>{isLoading ? <ImSpinner2 className='spin'/> : "Sign Up" }</button>
+                <button type="submit" className="submitSignUp"  disabled={isLoading}>{isLoading ? <ImSpinner9 className='spin'/> : "Sign Up" }</button>
             </form>
             <div>
                 <button onClick={googleSignIn} className="googleSignUp"><FaGoogle className='FaGoogle' /> Sign in with Google</button>
