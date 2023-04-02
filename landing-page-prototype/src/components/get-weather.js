@@ -11,12 +11,20 @@ const WeatherValue = () => {
     const imgURL = "https://openweathermap.org/img/wn/";
     const imgSource = (`${imgURL}/${icon}@2x.png`);
 
+    if (!city || !high || !low || !icon) {
+        return (
+            <div>
+                {/* Display nothing */}
+            </div>
+        )
+    }
+
 
     return (
         <div className="weather">
             <div className="details">
                 <div className="weather-icon">
-                    <img src={imgSource} alt="weather image" />
+                    <img src={imgSource} alt="weather icon" />
                 </div>
 
                 <div className="weather-info">

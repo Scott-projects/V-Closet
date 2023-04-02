@@ -13,6 +13,16 @@ const Recommender = () => {
     let outfit = [];
     let outfitString = "";
 
+    if (!high && !low) {
+        return (
+            <div>
+                <p>
+                    Update location to use the recommendation feature.
+                </p>
+            </div>
+        )
+    }
+
     if (high <= 40) {
         outfit.push(sweaters[1], shirts[1], outerwear[1]);
     }
@@ -23,11 +33,11 @@ const Recommender = () => {
     let i = 0;
     outfitString += outfit[i];
 
-    for (let i = 1; i < (outfit.length-1); i++) {
+    for (let i = 1; i < (outfit.length - 1); i++) {
         outfitString += ", " + outfit[i];
     }
 
-    outfitString += " & a " + outfit[outfit.length-1];
+    outfitString += " & a " + outfit[outfit.length - 1];
 
     return (
         <div>
