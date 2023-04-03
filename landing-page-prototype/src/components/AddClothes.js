@@ -10,10 +10,10 @@ function AddClothes() {
 
     // Images
     const [image, setImage] = useState(null);
-    let saveImage = null; //Variable to hold image to add to database   set = to image or null
+    let saveImage = image; //Variable to hold image to add to database   set = to image or null
     const handleImageUpload = (newImage) => {
         setImage(newImage);
-        saveImage = newImage; //Stores image of user upload
+        //saveImage = newImage; //Stores image of user upload
     };
 
     //Category
@@ -45,9 +45,12 @@ function AddClothes() {
     const handleUpload = (expectedDefault) => {
         expectedDefault.preventDefault();
         try {
-            addClothingItem(user.uid, selectedColor, selectedCategory, checkboxes, image);
+            console.log("SaveImage");
+            console.log(user.uid);
+            console.log(saveImage);
+            addClothingItem(user.uid, selectedColor, selectedCategory, checkboxes, saveImage);
         } catch (error) {
-            alert("There was an error adding the Clothing Item to your wardrobe: " + error);
+            //alert("There was an error adding the Clothing Item to your wardrobe: " + error);
         }
         setImage("");
         setSelectedCategory("");
