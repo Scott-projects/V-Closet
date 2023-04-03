@@ -27,6 +27,22 @@ const handleOnChange = (searchData) => {
     onSearchChange(searchData);
 }
 
+const cityStyle = {
+    menu: (provided, state) => ({
+        ...provided,
+        maxWidth: '35%',
+    }),
+    control: (provided, state) => ({
+        ...provided,
+        maxWidth: '35%',
+    }),
+    option: (provided, state) => ({
+        ...provided,
+        color: '#202020',
+        letterSpacing: '0.05rem',
+    }),
+};
+
 return (
     <AsyncPaginate
         placeholder="Search for city"
@@ -34,6 +50,7 @@ return (
         value={search}
         onChange={handleOnChange}
         loadOptions={loadOptions}
+        styles={cityStyle}
     />
 )
 }

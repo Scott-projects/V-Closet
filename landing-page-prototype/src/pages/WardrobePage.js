@@ -11,8 +11,8 @@ function WardrobePage() {
             <div className='wardrobe'>
                 {/* <h1 className='wardrobe-text'>Wardrobe Page</h1> */}
                 <TopNavBar />
-                <SideBar />
                 <ShapeContainer color="" />
+                <SideBar />
             </div>
         </CheckAuthentication>
     )

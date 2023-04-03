@@ -9,7 +9,6 @@ function AboutPage() {
         <CheckAuthentication>
             <div className="about">
                 <TopNavBar />
-                <ShapeContainer color="" />
 
                 <div className="about-page">
                     <div className="about-history">

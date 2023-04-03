@@ -1,8 +1,12 @@
 .home-text {
-    font-size: 5vw;
-    margin-top: 7%;
-    padding-left: 1%;
-    font-weight: 400;
+    font-size: 2vw;
+    margin-top: 8%;
+    margin-left: 1%;
+    font-weight: 700;
+}
+
+.recommend-text {
+    margin-left: 1%;
 }
   
 
