@@ -44,6 +44,9 @@
 
 .logoutBtn {
     all: unset;
+    margin-left: -5%;
+    padding-left: 5%;
+    padding-right: 40%;
 }
 
 .logout-icon {
