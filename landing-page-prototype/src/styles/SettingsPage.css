@@ -19,21 +19,18 @@
 
 .tab-list div.active-tab {
     font-size: 120%;
-    /* margin-right: 20%; */
-}
-
-.tab-list div:hover {
-    /* margin-right: 20%; */
 }
 
 .tab-content {
     text-align: left;
-}
-
-.general-container {
-    margin-top: -13.5%;
+    margin-top: -18%;
     margin-left: 32%;
     font-size: 1.35vw;
+}
+
+.about-page {
+    margin-right: 20%;
+    font-size: 1vw;
 }
 
 .general-text {
@@ -41,6 +38,14 @@
     font-weight: 500 !important;
 }
 
-.set-nickname-container, .set-location-container, .delete-account-container {
-    padding-bottom: 2%;
+.set-nickname-container, .change-password-container, .delete-account-container {
+    padding-bottom: 5%;
+}
+
+.logoutBtn {
+    all: unset;
+}
+
+.logout-icon {
+    font-size: 70%;
 }

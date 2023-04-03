@@ -1,27 +1,11 @@
-.about-page {
-    padding-bottom: 3%;
-    margin-top: 10%;
-    font-size: 1.5vw;
-}
-
-.about-history, .about-vision {
-    padding-bottom: 3%;
-    margin-left: 10%;
-    margin-right: 55%;
-    text-align: center;
+.history-text, .vision-text, .mission-text {
+    font-weight: 600;
+    letter-spacing: 0.3rem;
+    margin-right: 70%;
 }
 
 .history-p, .vision-p, .mission-p {
-    padding: 1%;
-    padding-top: 3%;
-    display: block;
-    text-align: center;
-    line-height: 1.5;
-}
-
-.about-mission {
+    padding-top: 0.5%;
     padding-bottom: 3%;
-    margin-right: 10%;
-    margin-left: 55%;
-    text-align: center;
+    line-height: 1.4;
 }

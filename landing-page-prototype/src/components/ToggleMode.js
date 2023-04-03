@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {FiSun} from 'react-icons/fi';
-import {FiMoon} from 'react-icons/fi';
+import { FiSun } from 'react-icons/fi';
+import { FiMoon } from 'react-icons/fi';
 
 const ToggleMode = () => {
   const [isDarkMode, setDarkMode] = useState(() => {
@@ -15,7 +15,7 @@ const ToggleMode = () => {
   return (
     <div>
       <tag onClick={() => setDarkMode(!isDarkMode)}>
-        {isDarkMode ? <FiSun/> : <FiMoon/>}
+        {isDarkMode ? <FiSun /> : <FiMoon />}
       </tag>
       <style jsx>{`
         body {
@@ -44,13 +44,16 @@ const ToggleMode = () => {
           filter: drop-shadow(0 0 2px ${isDarkMode ? "#f5f5f5" : "#181818"});
         }
         .tab-list div {
-          border-right: 3px solid ${isDarkMode ? "#f5f5f5" : "#333333" }
+          border-right: 3px solid ${isDarkMode ? "#f5f5f5" : "#333333"}
         }
         .tab-list div:hover {
           background-color: ${isDarkMode ? "#282828" : "#F0F0F0"};
         }
         .tab-list div.active-tab {
           background-color: ${isDarkMode ? "#181818" : "#E0E0E0"};
+        }
+        .history-text, .vision-text, .mission-text {
+          border-bottom: 2px solid ${isDarkMode ? "#f5f5f5" : "#333333"};
         }
       }
       `}
