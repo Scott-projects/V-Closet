@@ -1,5 +1,54 @@
 .setting-text {
-    font-size: 500%;
+    margin-left: 1%;
     margin-top: 8%;
-    padding-left: 1%;
+    font-size: 3.5vw;
+}
+
+.tab-list {
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 75%;
+    font-size: 2vw;
+}
+
+.tab-list div {
+    padding: 5%;
+    cursor: pointer;
+    border-bottom: none;
+}
+
+.tab-list div.active-tab {
+    font-size: 120%;
+}
+
+.tab-content {
+    text-align: left;
+    margin-top: -18%;
+    margin-left: 32%;
+    font-size: 1.35vw;
+}
+
+.about-page {
+    margin-right: 20%;
+    font-size: 1vw;
+}
+
+.general-text {
+    letter-spacing: 0.1rem;
+    font-weight: 500 !important;
+}
+
+.set-nickname-container, .change-password-container, .delete-account-container {
+    padding-bottom: 5%;
+}
+
+.logoutBtn {
+    all: unset;
+    margin-left: -5%;
+    padding-left: 5%;
+    padding-right: 40%;
+}
+
+.logout-icon {
+    font-size: 70%;
 }

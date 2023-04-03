@@ -59,6 +59,12 @@ input[name="passwordCheck"]:focus {
     color: black;
 }
 
+.submitSignUp:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
 .FaGoogle {
     padding-right: 3%;
     font-size: 90%;
@@ -77,4 +83,18 @@ input[name="passwordCheck"]:focus {
 
 .linkToLogin:hover {
     color: #ffffffad;
+}
+
+.spin {
+    animation: spin 5s infinite linear;
+    animation-duration: 1s;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

@@ -5,11 +5,12 @@ import { CheckAuthentication } from "../components/CheckAuthentication";
 
 function MarketPage() {
     return (
-        <div className="market-test">
-            <CheckAuthentication />
-            <TopNavBar />
-            <div className="market-text">Market Page</div>
-        </div>
+        <CheckAuthentication>
+            <div className="market-test">
+                <TopNavBar />
+                <div className="market-text">Market Page</div>
+            </div>
+        </CheckAuthentication>
     )
 }
 
