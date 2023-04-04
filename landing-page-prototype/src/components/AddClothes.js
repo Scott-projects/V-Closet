@@ -71,9 +71,12 @@ function AddClothes() {
                 () => {
                     getStorageDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                         setImgUrl(downloadURL)
+                        console.log("DOWNLOAD URL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                        console.log(downloadURL)
                     });
                 }
             );
+            addClothingItem(user.uid, selectedColor, selectedCategory, checkboxes, bucket);
         } catch (uploadError) {
             console.log(uploadError);
         }
@@ -95,10 +98,6 @@ function AddClothes() {
                             <div className='outerbar'>
                                 <div className='innerbar' style={{ width: `${progresspercent}%` }}>{progresspercent}%</div>
                             </div>
-                        }
-                        {
-                            imgUrl &&
-                            <img src={imgUrl} alt='uploaded file' height={200} />
                         }
                     </div>
                     <div className="add-clothes-information">

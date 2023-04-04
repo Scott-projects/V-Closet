@@ -34,7 +34,7 @@ function ImageUploader(props) {
     return (
         <div className='image-container'>
             <input type='file' accept="image/png,image/jpeg" onChange={fileSelectedHandler} />
-            {previewUrl && <img src={previewUrl} alt='Preview' />}
+            {previewUrl && <img src={previewUrl} alt='Preview' /> }
         </div>
     )
 
