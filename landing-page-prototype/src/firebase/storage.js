@@ -15,11 +15,17 @@ import { format } from 'date-fns';
 // Definition of V-Closet Bucket URL found in Firebase console
 const BUCKET_URL = "v-closet-f9736.appspot.com";
 
-export async function uploadImageToStorage(image, uid) {
+export async function uploadImageToStorage(image, uid, imagePath) {
     const formattedDate = format(new Date(), "yyyy-MM-dd'T'HH:mm:ss'Z'");
     const bucket = `${BUCKET_URL}/${uid}/${formattedDate}.jpg`;
-    // const storageBucketRef = ref(storage, bucket);
-    await uploadBytes(ref(storage, bucket), image);
+    const storageBucketRef = ref(storage, bucket);
+    console.log("Image !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    console.log(image.name);
+    console.log(image);
+    console.log(storageBucketRef);
+    console.log(bucket);
+    await uploadBytes(bucket, image);
+
     return bucket;
 }
 
