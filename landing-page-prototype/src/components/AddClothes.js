@@ -2,11 +2,17 @@ import React, { useState } from "react";
 import ImageUploader from "./ImageUploader";
 import "../styles/AddClothes.css";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../firebase/firebase";
+import { auth, storage } from "../firebase/firebase";
 import { addClothingItem } from "../firebase/firestore";
+import { getStorageDownloadURL } from "../firebase/storage";
+import { uploadBytesResumable, ref } from "firebase/storage";
+import { format } from "date-fns";
 
 function AddClothes() {
     const [user, loading, authError] = useAuthState(auth);
+    const [imgUrl, setImgUrl] = useState(null);
+    const [progresspercent, setProgresspercent] = useState(0);
+    const BUCKET_URL = "v-closet-f9736.appspot.com";
 
     // Images
     const [image, setImage] = useState(null);
@@ -43,19 +49,38 @@ function AddClothes() {
         .map((checkbox) => checkbox.label)
 
     const handleUpload = (expectedDefault) => {
-        expectedDefault.preventDefault();
+        expectedDefault.preventDefault()
+        const file = expectedDefault.target[0]?.files[0];
+        if (!file) return;
+
         try {
-            console.log("SaveImage");
-            console.log(user.uid);
-            console.log(saveImage);
-            addClothingItem(user.uid, selectedColor, selectedCategory, checkboxes, saveImage);
-        } catch (error) {
-            //alert("There was an error adding the Clothing Item to your wardrobe: " + error);
+            const formattedDate = format(new Date(), "yyyy-MM-dd'T'HH:mm:ss'Z'");
+            const bucket = `${BUCKET_URL}/${user.uid}/${formattedDate}.jpg`;
+            const storageRef = ref(storage, bucket);
+            const uploadTask = uploadBytesResumable(storageRef, file);
+
+            uploadTask.on("state_changed",
+                (snapshot) => {
+                    const progress =
+                        Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+                    setProgresspercent(progress);
+                },
+                (error) => {
+                    console.log(error);
+                },
+                () => {
+                    getStorageDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                        setImgUrl(downloadURL)
+                    });
+                }
+            );
+        } catch (uploadError) {
+            console.log(uploadError);
         }
         setImage("");
         setSelectedCategory("");
         setSelectedColor("");
-      //  setCheckboxes([]);
+        //  setCheckboxes([]);
     }
 
     return (
@@ -65,8 +90,17 @@ function AddClothes() {
                 <div className="add-clothes-form">
                     <div className="add-image-container">
                         <ImageUploader onImageUpload={handleImageUpload} />
+                        {
+                            !imgUrl &&
+                            <div className='outerbar'>
+                                <div className='innerbar' style={{ width: `${progresspercent}%` }}>{progresspercent}%</div>
+                            </div>
+                        }
+                        {
+                            imgUrl &&
+                            <img src={imgUrl} alt='uploaded file' height={200} />
+                        }
                     </div>
-
                     <div className="add-clothes-information">
                         <div className="add-category">
                             <h3>Category</h3>
@@ -78,7 +112,6 @@ function AddClothes() {
                             </select>
                         </div>
                         {/* <p>You selected: {selectedCategory}</p> */}
-
                         <div className="add-color">
                             <h3>Color (Best fits) </h3>
                             <select value={selectedColor} size="1" onChange={handleColorChange}>
