@@ -1,13 +1,16 @@
 .setting-text {
+    position: fixed;
+    margin-top: -5%;
     margin-left: 1%;
-    margin-top: 8%;
     font-size: 3.5vw;
+    padding-right: 80%;
 }
 
 .tab-list {
-    margin-top: 2%;
+    position: fixed;
     margin-left: 5%;
     margin-right: 75%;
+    width: 19%;
     font-size: 2vw;
 }
 
@@ -23,7 +26,7 @@
 
 .tab-content {
     text-align: left;
-    margin-top: -18%;
+    margin-top: 13%;
     margin-left: 32%;
     font-size: 1.35vw;
 }

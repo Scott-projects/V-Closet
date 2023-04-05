@@ -46,7 +46,7 @@ function SettingsPage() {
         <CheckAuthentication>
             <div className='settings-test'>
                 <TopNavBar />
-                <h1 className='setting-text'>Settings</h1>
+                    <h1 className='setting-text'>Settings</h1>
                 <div className="tab-list">
                     <div className={activeTab === 0 ? 'active-tab' : ''} onClick={() => setActiveTab(0)}>Account</div>
                     <div className={activeTab === 1 ? 'active-tab' : ''} onClick={() => setActiveTab(1)}>Location</div>
@@ -63,9 +63,9 @@ function SettingsPage() {
                                 <input type='text'></input>
                             </div>
                             <div className='change-password-container'>
-                            <h2 className='general-text'>Change Password</h2>
-                            <input type='text'></input>
-                        </div>
+                                <h2 className='general-text'>Change Password</h2>
+                                <input type='text'></input>
+                            </div>
                             <div className='delete-account-container'>
                                 <h2 className='general-text'>DELETE ACCOUNT</h2>
                                 <p>(Button here)</p>
