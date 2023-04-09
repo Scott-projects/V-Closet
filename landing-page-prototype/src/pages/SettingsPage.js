@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import TopNavBar from '../components/TopNavBar';
-import AboutPage from './AboutPage';
 import '../styles/SettingsPage.css'
 import { AiOutlineLogout } from 'react-icons/ai';
 import { logout } from '../firebase/authentication';
@@ -32,6 +31,11 @@ function SettingsPage() {
         }
     }
 
+    const handleDeleteAccount = () => {
+        //TODO
+        console.log("Deleting account test");
+    }
+
     const [currentWeather, setCurrentWeather] = useState(null);
 
     const handleOnSearchChange = (searchData) => {
@@ -54,7 +58,7 @@ function SettingsPage() {
         <CheckAuthentication>
             <div className='settings-test'>
                 <TopNavBar />
-                    <h1 className='setting-text'>Settings</h1>
+                <h1 className='setting-text'>Settings</h1>
                 <div className="tab-list">
                     <div className={activeTab === 0 ? 'active-tab' : ''} onClick={() => setActiveTab(0)}>Account</div>
                     <div className={activeTab === 1 ? 'active-tab' : ''} onClick={() => setActiveTab(1)}>Location</div>
@@ -63,12 +67,13 @@ function SettingsPage() {
                         <button className='logoutBtn' onClick={handleSignOut}>Logout <AiOutlineLogout className='logout-icon' /></button>
                     </div>
                 </div>
+
                 <div className="tab-content">
                     {activeTab === 0 && (
                         <div className='general-container'>
                             <div className='set-nickname-container'>
                                 <h2 className='general-text'>Update Nickname (optional)</h2>
-                                <input type='text' value={nickname} onChange={handleNicknameChange}/>
+                                <input type='text' value={nickname} onChange={handleNicknameChange} />
                                 <button className="nicknameBtn" onClick={saveNickname}>Change Nickname</button>
                             </div>
                             <div className='change-password-container'>
@@ -77,7 +82,7 @@ function SettingsPage() {
                             </div>
                             <div className='delete-account-container'>
                                 <h2 className='general-text'>DELETE ACCOUNT</h2>
-                                <p>(Button here)</p>
+                                <button className='deleteBtn' onClick={handleDeleteAccount}>Delete Account</button>
                             </div>
                         </div>
                     )}
@@ -89,9 +94,36 @@ function SettingsPage() {
                         </div>
                     )}
                     {activeTab === 2 && (
-                        <AboutPage className='about-page' />
+                        <div className="about-page-container">
+                            <div className="about-mission">
+                                <h2 className="mission-text">Our Mission</h2>
+                                <p className="mission-p">
+                                    Our mission at V-Closet is to empower individuals to take control of their wardrobe and make fashion
+                                    decisions with confidence. We believe that everyone deserves to feel good about what they wear, and that starts with having a well-organized closet.
+                                    Our virtual closet platform provides users with the tools they need to easily categorize and manage their clothing, create outfits, and discover new styles.
+                                    We strive to simplify the fashion experience, saving our users time and money, and ultimately helping them to build a more sustainable and
+                                    satisfying relationship with their wardrobe.
+                                </p>
+                            </div>
+
+                            <div className="about-vision">
+                                <h2 className="vision-text">Our Vision</h2>
+                                <p className="vision-p">
+                                    Our vision at V-Closet is to simplify and revolutionize the way people manage their wardrobe. We aim to be the go-to destination
+                                    for anyone looking to save time, reduce waste, and enhance their sense of style through a personalized, sustainable, and innovative platform.
+                                    Our ultimate goal is to promote conscious and enjoyable fashion practices for all.
+                                </p>
+                            </div>
+
+                            <div className="about-history">
+                                <h2 className="history-text">Our History</h2>
+                                <p className="history-p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+                                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
+                                    pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. </p>
+                            </div>
+                        </div>
                     )}
-                    {activeTab === 3}
+                    {activeTab === 3}{/* Log out */}
                 </div>
                 <br />
 
