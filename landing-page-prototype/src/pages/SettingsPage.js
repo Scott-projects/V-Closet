@@ -14,6 +14,14 @@ import CurrentWeather from '../components/current-weather';
 function SettingsPage() {
     const [activeTab, setActiveTab] = useState(0);
     const navigate = useNavigate();
+    const [nickname, setNickname] = useState('');
+
+    const handleNicknameChange = (e) => {
+        setNickname(e.target.value);
+    };
+    const saveNickname = () => {
+        localStorage.setItem('myNickname', nickname); //Saves nickname
+    }
 
     const handleSignOut = async () => {
         try {
@@ -60,7 +68,8 @@ function SettingsPage() {
                         <div className='general-container'>
                             <div className='set-nickname-container'>
                                 <h2 className='general-text'>Update Nickname (optional)</h2>
-                                <input type='text'></input>
+                                <input type='text' value={nickname} onChange={handleNicknameChange}/>
+                                <button className="nicknameBtn" onClick={saveNickname}>Change Nickname</button>
                             </div>
                             <div className='change-password-container'>
                                 <h2 className='general-text'>Change Password</h2>

@@ -45,6 +45,15 @@
     padding-bottom: 5%;
 }
 
+.general-container input {
+    font-size: 80%;
+}
+
+.nicknameBtn {
+    margin-left: 2%;
+    font-size: 50%;
+}
+
 .logoutBtn {
     all: unset;
     margin-left: -5%;
