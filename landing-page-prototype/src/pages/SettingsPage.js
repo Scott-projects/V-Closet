@@ -16,7 +16,10 @@ function SettingsPage() {
     const [nickname, setNickname] = useState('');
 
     const handleNicknameChange = (e) => {
-        setNickname(e.target.value);
+        if (e.target.value.length >= 20) {} //If characters is greater than 20
+        else {
+            setNickname(e.target.value);
+        }
     };
     const saveNickname = () => {
         localStorage.setItem('myNickname', nickname); //Saves nickname
