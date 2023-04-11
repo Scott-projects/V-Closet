@@ -6,7 +6,7 @@ import { CheckAuthentication } from "../components/CheckAuthentication";
 import Recommender from "../components/recommender";
 
 function HomePage() {
-
+    const nickname = localStorage.getItem('myNickname') || 'User';
     const [weatherInfo, setWeatherInfo] = useState("");
 
 
@@ -15,7 +15,7 @@ function HomePage() {
             <div className="home">
                 <TopNavBar />
                 <ShapeContainer color="" />
-                <h1 className="home-text">Welcome back, (Insert user name)</h1>
+                <h1 className="home-text">Welcome back, {nickname}!</h1>
                 <div className="recommend-text">
                     <Recommender />
                 </div>

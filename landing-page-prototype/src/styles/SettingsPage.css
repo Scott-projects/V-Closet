@@ -1,13 +1,16 @@
 .setting-text {
+    position: fixed;
+    margin-top: -5%;
     margin-left: 1%;
-    margin-top: 8%;
     font-size: 3.5vw;
+    padding-right: 80%;
 }
 
 .tab-list {
-    margin-top: 2%;
+    position: fixed;
     margin-left: 5%;
     margin-right: 75%;
+    width: 19%;
     font-size: 2vw;
 }
 
@@ -23,14 +26,14 @@
 
 .tab-content {
     text-align: left;
-    margin-top: -18%;
+    margin-top: 13%;
     margin-left: 32%;
     font-size: 1.35vw;
 }
 
-.about-page {
-    margin-right: 20%;
-    font-size: 1vw;
+.about-page-container {
+    margin-right: 15%;
+    font-size: 1.20vw;
 }
 
 .general-text {
@@ -40,6 +43,40 @@
 
 .set-nickname-container, .change-password-container, .delete-account-container {
     padding-bottom: 5%;
+}
+
+.general-container input {
+    font-size: 80%;
+}
+
+.nicknameBtn {
+    margin-left: 2%;
+    font-size: 70%;
+}
+
+.deleteBtn {
+    all: unset;
+    padding: 0.5%;
+    background-color: red;
+    border: 2px solid black;
+}
+
+.deleteBtn:hover {
+    cursor: pointer;
+    background-color: #B80000;
+}
+
+.history-text, .vision-text, .mission-text {
+    font-weight: 500;
+    letter-spacing: 0.3rem;
+    margin-right: 70%;
+}
+
+.history-p, .vision-p, .mission-p {
+    padding-top: 0.5%;
+    padding-bottom: 3%;
+    line-height: 1.4;
+    letter-spacing: 0.1rem;
 }
 
 .logoutBtn {
