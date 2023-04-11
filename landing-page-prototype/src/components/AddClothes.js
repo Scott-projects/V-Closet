@@ -3,7 +3,7 @@ import ImageUploader from "./ImageUploader";
 import "../styles/AddClothes.css";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, storage } from "../firebase/firebase";
-import { addClothingItem } from "../firebase/firestore";
+import { addClothingItem, getClothingItem } from "../firebase/firestore";
 import { getStorageDownloadURL } from "../firebase/storage";
 import { uploadBytesResumable, ref } from "firebase/storage";
 import { format } from "date-fns";
@@ -71,8 +71,8 @@ function AddClothes() {
                 () => {
                     getStorageDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                         setImgUrl(downloadURL)
-                        console.log("DOWNLOAD URL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-                        console.log(downloadURL)
+                        //console.log("DOWNLOAD URL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+                        //console.log(downloadURL)
                     });
                 }
             );
@@ -84,6 +84,7 @@ function AddClothes() {
         setSelectedCategory("");
         setSelectedColor("");
         //  setCheckboxes([]);
+        getClothingItem(user.uid, "shirts");
     }
 
     return (
