@@ -1,21 +1,17 @@
 import React from "react";
-import { doc } from "firebase/firestore";
 
-const ClothingDisplay = (doc) => {
-    const clothingItems = doc.data();
-    console.log("CLOTHINGITEMS---------------------------------")
-    console.log(doc.data());
+function ClothingDisplay(props) {
+    const clothingItem = props.clothingItem;
     return (
         <div>
-            <image alt="Clothing Image" src={clothingItems.bucket} />
+            <img alt="Clothing Image" src={clothingItem.bucket} />
             <h2>
-                Category = {clothingItems.category}
+                Category = {clothingItem.category}
             </h2>
             <h2>
-                color = {clothingItems.color}
+                color = {clothingItem.color}
             </h2>
         </div>
     )
 }
-
 export default ClothingDisplay;
