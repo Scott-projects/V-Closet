@@ -30,7 +30,7 @@ function WardrobePage() {
         }
         if (user) {
             const unsubscribe = fetchData();
-            return () => unsubscribe();
+            return () => unsubscribe;
         }
         else {
             console.log("Loading Clothes...");
