@@ -55,6 +55,9 @@ const ToggleMode = () => {
         .history-text, .vision-text, .mission-text {
           border-bottom: 2px solid ${isDarkMode ? "#f5f5f5" : "#333333"};
         }
+        .ToAddItem {
+          color: ${isDarkMode ? "#f5f5f5" : "#333333"};
+        }
       }
       `}
       </style>
