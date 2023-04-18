@@ -37,7 +37,8 @@ function AddClothes() {
     //Suitability
     const [checkboxes, setCheckboxes] = useState([ //Array of checkboxes
         { label: "Rain", value: 1, checked: false },
-        { label: "Cold", value: 2, checked: false }
+        { label: "Cold", value: 2, checked: false },
+        { label: "Hot", value: 3, checked: false}
     ]);
     const handleSuitabilityChange = (index) => { //Handles boolean value of a checkbox based on index
         const newCheckboxes = [...checkboxes]; //Uses spread operator to copy new array with updated values
@@ -106,6 +107,9 @@ function AddClothes() {
                             <h3>Category</h3>
                             <select value={selectedCategory} onChange={handleCategoryChange}>
                                 <option hidden>Select a category</option>
+                                <option value="outerwear">Outerwear</option>
+                                <option value="headwear">Headwear</option>
+                                <option value="sweaters">Sweaters</option>
                                 <option value="shirts">Shirts</option>
                                 <option value="pants">Pants</option>
                                 <option value="shoes">Shoes</option>
@@ -144,9 +148,9 @@ function AddClothes() {
                                 </label>
                             ))}
 
-                            {selectedOptions.length > 0 && (
+                            {/* {selectedOptions.length > 0 && (
                                 <p>You selected: {selectedOptions.join(", ")}</p>
-                            )}
+                            )} */}
                         </div>
 
                         <div className="add-description">
