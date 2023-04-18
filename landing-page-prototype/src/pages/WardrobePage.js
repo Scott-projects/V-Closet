@@ -8,7 +8,7 @@ import { getClothingItem } from "../firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase";
 import ClothingDisplay from "../components/ClothingDisplay";
-
+import { ImSpinner9 } from "react-icons/im";
 
 function WardrobePage() {
     const [user, loading, authError] = useAuthState(auth);
@@ -38,7 +38,7 @@ function WardrobePage() {
     }, [user], category);
 
     return ((!user || isLoadingClothes) ?
-        null
+        <ImSpinner9 className='spin' />
         :
         <div>
             <div className='wardrobe'>

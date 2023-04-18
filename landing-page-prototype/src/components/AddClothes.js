@@ -72,8 +72,6 @@ function AddClothes() {
                 () => {
                     getStorageDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                         setImgUrl(downloadURL)
-                        //console.log("DOWNLOAD URL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-                        //console.log(downloadURL)
                     });
                 }
             );
