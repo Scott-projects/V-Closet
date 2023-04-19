@@ -9,15 +9,20 @@ import { CheckAuthentication } from "../components/CheckAuthentication";
 
 
 function WardrobePage() {
+    const [selectedValue, setSelectedValue] = useState('');
+
+    const handleSelect = (value) => {
+      setSelectedValue(value);
+    };
 
     return (
         <CheckAuthentication>
             <div className='wardrobe'>
                 <TopNavBar />
                 <ShapeContainer color="" />
-                <SideBar />
+                <SideBar onSelect={handleSelect} />
                 <div className="Clothing">
-                    <QueryClothes />
+                    <QueryClothes selectedCategory={selectedValue}/>
                 </div>
             </div>
         </CheckAuthentication>

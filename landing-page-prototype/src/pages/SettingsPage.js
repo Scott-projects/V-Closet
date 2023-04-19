@@ -59,7 +59,7 @@ function SettingsPage() {
 
     return (
         <CheckAuthentication>
-            <div className='settings-test'>
+            <div className='settings'>
                 <TopNavBar />
                 <h1 className='setting-text'>Settings</h1>
                 <div className="tab-list">

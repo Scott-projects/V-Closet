@@ -6,9 +6,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase";
 import ClothingDisplay from "../components/ClothingDisplay";
 
-function QueryClothes(props) {
+function QueryClothes( {selectedCategory} ) {
     const [user, loading, authError] = useAuthState(auth);
-    const [category, setCategory] = useState("shirts");
     const [clothingItems, setClothingItems] = useState([]);
     const [count, setCount] = useState(0);
     const [isLoadingClothes, setisLoadingClothes] = useState(true);
@@ -16,7 +15,7 @@ function QueryClothes(props) {
 
     useEffect(() => {
         async function fetchData() {
-            const unsubscribe = await getClothingItem(user.uid, category, setClothingItems, setisLoadingClothes);
+            const unsubscribe = await getClothingItem(user.uid, selectedCategory, setClothingItems, setisLoadingClothes);
             console.log(unsubscribe);
             return () => unsubscribe;
         }
@@ -27,7 +26,7 @@ function QueryClothes(props) {
         else {
             console.log("Loading Clothes...");
         }
-    }, [user], category);
+    }, [user, selectedCategory]);
 
     return ((!user || isLoadingClothes) ?
         null
