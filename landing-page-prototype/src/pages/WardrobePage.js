@@ -1,19 +1,31 @@
 import React from "react";
+import { useState } from "react";
 import TopNavBar from "../components/TopNavBar";
 import SideBar from "../components/SideBar";
 import "../styles/WardrobePage.css";
 import ShapeContainer from "../components/ShapeContainer";
+import QueryClothes from "../components/QueryClothes";
 import { CheckAuthentication } from "../components/CheckAuthentication";
 
+
 function WardrobePage() {
+    const [selectedValue, setSelectedValue] = useState('');
+
+    const handleSelect = (value) => {
+      setSelectedValue(value);
+    };
+
     return (
-        <div className='wardrobe'>
-            <CheckAuthentication />
-            {/* <h1 className='wardrobe-text'>Wardrobe Page</h1> */}
-            <TopNavBar />
-            <SideBar />
-            <ShapeContainer color="" />
-        </div>
+        <CheckAuthentication>
+            <div className='wardrobe'>
+                <TopNavBar />
+                <ShapeContainer color="" />
+                <SideBar onSelect={handleSelect} />
+                <div className="Clothing">
+                    <QueryClothes selectedCategory={selectedValue}/>
+                </div>
+            </div>
+        </CheckAuthentication>
     )
 }
 

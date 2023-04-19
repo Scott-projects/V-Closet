@@ -1,18 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { IoAddCircleOutline } from "react-icons/io5"
 import "../styles/SideBar.css";
 
-const SideBar = () => {
-    return (
-        <div className="sidebar">
-            <ul className="side-categories">
-                <li className="side-item">Shirts</li>
-                <li className="side-item">Pants</li>
-                <li className="side-item">Shoes</li>
-                <li className="side-item"><Link className="ToAddItem" to="/additem">Add Item (+)</Link></li>
-            </ul>
-        </div>
-    )
+function SideBar({ onSelect }) {
+  const categories = [
+    { name: "All", value: "all" },
+    { name: "Outerwear", value: "outerwear" },
+    { name: "Headwear", value: "headwear" },
+    { name: "Sweaters", value: "sweaters" },
+    { name: "Shirts", value: "shirts" },
+    { name: "Pants", value: "pants" },
+    { name: "Shoes", value: "shoes" },
+  ];
+  const [selectedValue, setSelectedValue] = useState("");
+
+  const handleValueChange = (value) => {
+    setSelectedValue(value);
+    onSelect(value);
+  }
+
+  return (
+    <div className="sidebar">
+      <h2 className="closet-heading">My Closet</h2>
+      <ul className="side-categories">
+        {categories.map((category) => (
+          <li
+            key={category.value}
+            className={`side-${category.value}${selectedValue === category.value ? " bold" : ""}`}
+            onClick={() => handleValueChange(category.value)}
+          >
+            {category.name}
+          </li>
+        ))}
+      </ul>
+      <Link className="ToAddItem" to="/additem">
+        <IoAddCircleOutline />
+      </Link>
+    </div>
+  )
 }
 
 export default SideBar;

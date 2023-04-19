@@ -1,14 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/index.css';
-import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Main from './pages/Main';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import SettingsPage from './pages/SettingsPage';
 import AddItemPage from './pages/AddItemPage';
-import AboutPage from './pages/AboutPage';
 import HomePage from './pages/HomePage';
 import WardrobePage from './pages/WardrobePage';
 import MarketPage from './pages/MarketPage';
@@ -33,10 +31,6 @@ const router = createBrowserRouter ([
   {
     path: "AddItem",
     element: <AddItemPage/>
-  },
-  {
-    path: "About",
-    element: <AboutPage/>
   },
   {
     path: "Home",

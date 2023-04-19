@@ -1,5 +1,91 @@
 .setting-text {
-    font-size: 500%;
-    margin-top: 8%;
-    padding-left: 1%;
+    position: fixed;
+    margin-top: -5%;
+    margin-left: 1%;
+    font-size: 3.5vw;
+    padding-right: 80%;
+}
+
+.tab-list {
+    position: fixed;
+    margin-left: 5%;
+    margin-right: 75%;
+    width: 19%;
+    font-size: 2vw;
+}
+
+.tab-list div {
+    padding: 5%;
+    cursor: pointer;
+    border-bottom: none;
+}
+
+.tab-list div.active-tab {
+    font-size: 120%;
+}
+
+.tab-content {
+    text-align: left;
+    margin-top: 13%;
+    margin-left: 32%;
+    font-size: 1.35vw;
+}
+
+.about-page-container {
+    margin-right: 15%;
+    font-size: 1.20vw;
+}
+
+.general-text {
+    letter-spacing: 0.1rem;
+    font-weight: 500 !important;
+}
+
+.set-nickname-container, .change-password-container, .delete-account-container {
+    padding-bottom: 5%;
+}
+
+.general-container input {
+    font-size: 80%;
+}
+
+.nicknameBtn {
+    margin-left: 2%;
+    font-size: 70%;
+}
+
+.deleteBtn {
+    all: unset;
+    padding: 0.5%;
+    background-color: red;
+    border: 2px solid black;
+}
+
+.deleteBtn:hover {
+    cursor: pointer;
+    background-color: #B80000;
+}
+
+.history-text, .vision-text, .mission-text {
+    font-weight: 500;
+    letter-spacing: 0.3rem;
+    margin-right: 70%;
+}
+
+.history-p, .vision-p, .mission-p {
+    padding-top: 0.5%;
+    padding-bottom: 3%;
+    line-height: 1.4;
+    letter-spacing: 0.1rem;
+}
+
+.logoutBtn {
+    all: unset;
+    margin-left: -5%;
+    padding-left: 5%;
+    padding-right: 40%;
+}
+
+.logout-icon {
+    font-size: 70%;
 }

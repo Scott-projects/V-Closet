@@ -8,7 +8,8 @@ function ImageUploader(props) {
 
     const fileSelectedHandler = (event) => {
         const selectedFile = event.target.files[0]; //Stores selected file
-
+        console.log("selectedFile");
+        console.log(selectedFile.name);
         const reader = new FileReader();
         reader.onload = () => { //Read sucessfully and sets preview URL
             setPreviewUrl(reader.result);
@@ -33,7 +34,7 @@ function ImageUploader(props) {
     return (
         <div className='image-container'>
             <input type='file' accept="image/png,image/jpeg" onChange={fileSelectedHandler} />
-            {previewUrl && <img src={previewUrl} alt='Preview' />}
+            {previewUrl && <img src={previewUrl} alt='Preview' /> }
         </div>
     )
 

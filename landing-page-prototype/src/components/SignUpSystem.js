@@ -5,6 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
+import { ImSpinner9 } from 'react-icons/im';
 import "../styles/SignUpSystem.css";
 
 const SignUpSystem = () => {
@@ -15,13 +16,14 @@ const SignUpSystem = () => {
     const [passwordCheck, setPasswordCheck] = useState("");
     const [user, loading, authError] = useAuthState(auth);
     const navigate = useNavigate();
+    const [isLoading, setLoading] = useState(false);
 
     useEffect(() => {
         if (loading) {
             return;
         }
         if (user) {
-            navigate("/wardrobe");
+            navigate("/home");
         }
     }, [user, loading, navigate]);
 
@@ -32,14 +34,20 @@ const SignUpSystem = () => {
             setError("Both passwords must match! Please make sure you enter the same password.");
         } else {
             try {
-                signUpwithEmailAndPassword(email, password);
-                navigate("/wardrobe")
+                setLoading(true);
+                await signUpwithEmailAndPassword(email, password);
+                //navigate("/home");
             } catch (e) {
                 if (authError) {
                     alert("There was an error with authentication: " + authError);
                 }
                 setError(e);
             }
+            setTimeout(() => {
+               setLoading(false); 
+               console.log('setLoading to false (timeout)');
+            }, 2000); //Wait 2 seconds
+
             setError("")
             setEmail("");
             setPassword("");
@@ -65,7 +73,7 @@ const SignUpSystem = () => {
                     <label for="passwordCheckLabel">Re-enter Password</label>
                     <input type="password" name="passwordCheck" value={passwordCheck} placeholder="Re-enter your password" required onChange={(change) => setPasswordCheck(change.target.value)} />
                 </div>
-                <button type="submit" className="submitSignUp">Sign Up</button>
+                <button type="submit" className="submitSignUp"  disabled={isLoading}>{isLoading ? <ImSpinner9 className='spin'/> : "Sign Up" }</button>
             </form>
             <div>
                 <button onClick={googleSignIn} className="googleSignUp"><FaGoogle className='FaGoogle' /> Sign in with Google</button>

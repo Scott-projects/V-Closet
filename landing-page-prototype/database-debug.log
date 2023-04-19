@@ -1,0 +1,4 @@
+13:05:31.193 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+13:05:31.477 [main] INFO com.firebase.server.forge.App$ - Listening at 127.0.0.1:9000
+13:05:45.650 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO com.firebase.core.namespace.NamespaceActor - v-closet-f9736-default-rtdb successfully activated FBKV (SurveyIdle(0)) wait: 230ms, init: 0ms
+13:05:45.778 [NamespaceSystem-blocking-namespace-operation-dispatcher-7] INFO com.firebase.core.namespace.StateManager - Namespace v-closet-f9736-default-rtdb status Active to Active
