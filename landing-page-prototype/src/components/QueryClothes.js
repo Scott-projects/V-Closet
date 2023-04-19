@@ -5,8 +5,9 @@ import { getClothingItem } from "../firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase";
 import ClothingDisplay from "../components/ClothingDisplay";
+import { ImSpinner2 } from "react-icons/im";
 
-function QueryClothes( {selectedCategory} ) {
+function QueryClothes({ selectedCategory }) {
     const [user, loading, authError] = useAuthState(auth);
     const [clothingItems, setClothingItems] = useState([]);
     const [count, setCount] = useState(0);
@@ -29,7 +30,7 @@ function QueryClothes( {selectedCategory} ) {
     }, [user, selectedCategory]);
 
     return ((!user || isLoadingClothes) ?
-        null
+        <ImSpinner2 className='load-spin' />
         :
         <div className="Clothing">
             {clothingItems.map((clothingItem) => (

@@ -21,6 +21,16 @@
     cursor: pointer;
 }
 
+.side-categories li:hover {
+    font-weight: 600;
+}
+
+.side-categories li.bold {
+    font-weight: 600;
+    font-size: 2.75vw;
+  }
+
 .ToAddItem {
     text-decoration: none;
+    margin-left: 81%;
 }

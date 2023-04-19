@@ -4,27 +4,41 @@ import { IoAddCircleOutline } from "react-icons/io5"
 import "../styles/SideBar.css";
 
 function SideBar({ onSelect }) {
-    const [selectedValue, setSelectedValue] = useState("");
-    const handleValueChange = (value) => {
-        setSelectedValue(value);
-        onSelect(value);
-    }
+  const categories = [
+    { name: "All", value: "all" },
+    { name: "Outerwear", value: "outerwear" },
+    { name: "Headwear", value: "headwear" },
+    { name: "Sweaters", value: "sweaters" },
+    { name: "Shirts", value: "shirts" },
+    { name: "Pants", value: "pants" },
+    { name: "Shoes", value: "shoes" },
+  ];
+  const [selectedValue, setSelectedValue] = useState("");
 
-    return (
-        <div className="sidebar">
-            <h2 className="closet-heading">My Closet</h2>
-            <ul className="side-categories">
-                <li className="side-item" onClick={() => handleValueChange("all")}>All</li>
-                <li className="side-item" onClick={() => handleValueChange("outerwear")}>Outerwear</li>
-                <li className="side-item" onClick={() => handleValueChange("headwear")}>Headwear</li>
-                <li className="side-item" onClick={() => handleValueChange("sweaters")}>Sweaters</li>
-                <li className="side-item" onClick={() => handleValueChange("shirts")}>Shirts</li>
-                <li className="side-item" onClick={() => handleValueChange("pants")}>Pants</li>
-                <li className="side-item" onClick={() => handleValueChange("shoes")}>Shoes</li>
-                <li className="side-item"><Link className="ToAddItem" to="/additem"><IoAddCircleOutline /></Link></li>
-            </ul>
-        </div>
-    )
+  const handleValueChange = (value) => {
+    setSelectedValue(value);
+    onSelect(value);
+  }
+
+  return (
+    <div className="sidebar">
+      <h2 className="closet-heading">My Closet</h2>
+      <ul className="side-categories">
+        {categories.map((category) => (
+          <li
+            key={category.value}
+            className={`side-${category.value}${selectedValue === category.value ? " bold" : ""}`}
+            onClick={() => handleValueChange(category.value)}
+          >
+            {category.name}
+          </li>
+        ))}
+      </ul>
+      <Link className="ToAddItem" to="/additem">
+        <IoAddCircleOutline />
+      </Link>
+    </div>
+  )
 }
 
 export default SideBar;
