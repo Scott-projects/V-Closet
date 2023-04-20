@@ -11,13 +11,13 @@
     list-style: none;
 }
 
-.homeIcon, .settingsIcon, .clothesIcon {
+.homeIcon, .settingsIcon, .clothesIcon, .shopIcon {
     text-decoration: none;
     color: inherit;
     cursor: pointer;
 }
 
-.navbar-nav > .navbar-home, .navbar-gear, .navbar-toggle, .navbar-clothes, .navbar-weather {
+.navbar-nav > .navbar-home, .navbar-gear, .navbar-toggle, .navbar-clothes, .navbar-weather, .navbar-shop {
     display: inline-block;
 }
 
@@ -35,7 +35,7 @@
     overflow: hidden;
 }
 
-.navbar-gear, .navbar-clothes, .navbar-toggle {
+.navbar-gear, .navbar-clothes, .navbar-toggle, .navbar-shop {
     float: right;
     margin-right: 1%;
     height: 1em;
