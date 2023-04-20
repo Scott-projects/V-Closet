@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { AiOutlineHome } from 'react-icons/ai';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { BsGear } from 'react-icons/bs';
 import { GiClothes } from 'react-icons/gi';
 import ToggleMode from './ToggleMode';
@@ -26,6 +27,9 @@ const TopNavBar = () => {
                 </li>
                 <li className='navbar-clothes'>
                     <Link className='clothesIcon' to="/wardrobe"><GiClothes /></Link>
+                </li>
+                <li className='navbar-shop'>
+                    <Link className='shopIcon' to="/market"><AiOutlineShoppingCart /></Link>
                 </li>
             </ul>
         </nav>

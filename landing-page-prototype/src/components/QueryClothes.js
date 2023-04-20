@@ -30,7 +30,9 @@ function QueryClothes({ selectedCategory }) {
     }, [user, selectedCategory]);
 
     return ((!user || isLoadingClothes) ?
-        <ImSpinner2 className='load-spin' />
+        <div className="loading-data">
+            <ImSpinner2 className='load-spin' />
+        </div>
         :
         <div className="Clothing">
             {clothingItems.map((clothingItem) => (
