@@ -1,51 +1,60 @@
 import "../styles/current-weather.css";
 import React from "react";
+import { useEffect, useState } from "react";
+import TopNavBar from "../components/TopNavBar";
+import SideBar from "../components/SideBar";
+import "../styles/WardrobePage.css";
+import ShapeContainer from "../components/ShapeContainer";
+import { getClothingItem } from "../firebase/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase/firebase";
+import ClothingDisplay from "../components/ClothingDisplay";
 
 const Recommender = () => {
+    
+    const [user, loading, authError] = useAuthState(auth);
+    const [clothingShirts, setClothingShirts] = useState([]);
+    const [clothingPants, setClothingPants] = useState([]);
+    const [clothingShoes, setClothingShoes] = useState([]);
 
-    const high = sessionStorage.getItem("high");
-    const low = sessionStorage.getItem("low");
+    const [clothingItems, setClothingItems] = useState([]);
+    const [count, setCount] = useState(0);
+    const [isLoadingClothes, setisLoadingClothes] = useState(true);
+    const myArray = [];
 
-    const sweaters = Array("cardigan", "turtleneck", "hoodie", "crewneck");
-    const shirts = Array("tank top", "t-shirt", "button-up LS");
-    const outerwear = Array("parka", "puffer jacket", "raincoat", "windbreaker");
-
-    let outfit = [];
-    let outfitString = "";
-
-    if (!high && !low) {
-        return (
-            <div>
-                <p>
-                    Update location to use the recommendation feature.
-                </p>
-            </div>
-        )
+    const displayCategories = () => {
+        return 0;
     }
 
-    if (high <= 40) {
-        outfit.push(sweaters[1], shirts[1], outerwear[1]);
-    }
-    else {
-        outfit.push(sweaters[2], shirts[0]);
-    }
+    useEffect(() => {
+        async function fetchData() {
+            const unsubscribe = await getClothingItem(user.uid, setClothingShirts, setClothingPants, setClothingShoes, setClothingOuterwear, setisLoadingClothes);
+            console.log(unsubscribe);
+            return () => unsubscribe;
+        }
+        if (user) {
+            const unsubscribe = fetchData();
+            return () => unsubscribe;
+        }
+        else {
+            console.log("Loading Clothes...");
+        }
+    }, [user], category);
 
-    let i = 0;
-    outfitString += outfit[i];
-
-    for (let i = 1; i < (outfit.length - 1); i++) {
-        outfitString += ", " + outfit[i];
-    }
-
-    outfitString += " & a " + outfit[outfit.length - 1];
-
-    return (
+    return ((!user || isLoadingClothes) ?
+        null
+        :
         <div>
-            <p>
-                You should wear a {outfitString}.
-            </p>
+            <TopNavBar />
+            <div className='wardrobe'>
+                <div>
+                    <ClothingDisplay clothingItem={clothingItems[1]} />  
+                </div>
+            </div>
         </div>
-    );
+    )
+
+
 }
 
 
