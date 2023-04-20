@@ -10,14 +10,16 @@ import { ImSpinner2 } from "react-icons/im";
 function QueryClothes({ selectedCategory }) {
     const [user, loading, authError] = useAuthState(auth);
     const [clothingItems, setClothingItems] = useState([]);
-    const [count, setCount] = useState(0);
     const [isLoadingClothes, setisLoadingClothes] = useState(true);
-    const myArray = [];
+    const [isClothingArrayEmpty, setIsClothingArrayEmpty] = useState(false);
 
     useEffect(() => {
         async function fetchData() {
+            console.log(user.uid);
             const unsubscribe = await getClothingItem(user.uid, selectedCategory, setClothingItems, setisLoadingClothes);
-            console.log(unsubscribe);
+            if (clothingItems.length === 0) {
+                setIsClothingArrayEmpty(true);
+            }
             return () => unsubscribe;
         }
         if (user) {

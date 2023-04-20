@@ -5,13 +5,18 @@ import { uploadImageToStorage, getStorageDownloadURL } from './storage';
 const BUCKET_URL = "v-closet-f9736.appspot.com";
 
 export function addClothingItem(uid, color, category, checkBoxArray, bucket) {
-  let forSale = false;
+  const forSale = false;
   addDoc(collection(db, uid), { color, category, checkBoxArray, forSale, bucket });
 }
 
 export async function getClothingItem(uid, category, setClothingItems, setisLoadingClothes) {
-  console.log("GETTING DOCUMENT DATA STUF -------------------------------------------------");
-  const clothingQuery = query(collection(db, uid), where("category", "==", category));
+  let clothingQuery;
+  if (category == 'all') {
+    clothingQuery = query(collection(db, uid));
+  }
+  else {
+    clothingQuery = query(collection(db, uid), where("category", "==", category));
+  }
 
   const unsubscribe = onSnapshot(clothingQuery, async (snapshot) => {
     let allClothingItems = [];
@@ -28,6 +33,90 @@ export async function getClothingItem(uid, category, setClothingItems, setisLoad
     }
     setClothingItems(allClothingItems);
     setisLoadingClothes(false)
+  })
+  return unsubscribe;
+}
+
+export async function getClothingItemsForHomepage(uid, setShirts, setPants, setShoes, setHeadwear, setOuterwear, setSweaters ,setisLoadingClothes) {
+  const clothingQuery = query(collection(db, uid));
+
+  const unsubscribe = onSnapshot(clothingQuery, async (snapshot) => {
+    let shirts = [];
+    let outerwear = [];
+    let headwear = [];
+    let sweaters = [];
+    let pants = [];
+    let shoes = [];
+    for (const documentSnapshot of snapshot.docs) {
+      const clothingItem = documentSnapshot.data();
+      if (clothingItem['category'] === "shirts") {
+        shirts.push({
+          ...clothingItem,
+          id: documentSnapshot.id,
+          color: clothingItem['color'],
+          category: clothingItem['category'],
+          checkBoxArray: clothingItem['checkBoxArray'],
+          bucket: await getStorageDownloadURL(clothingItem['bucket']),
+        });
+      }
+      if (clothingItem['category'] === "outerwear") {
+        outerwear.push({
+          ...clothingItem,
+          id: documentSnapshot.id,
+          color: clothingItem['color'],
+          category: clothingItem['category'],
+          checkBoxArray: clothingItem['checkBoxArray'],
+          bucket: await getStorageDownloadURL(clothingItem['bucket']),
+        });
+      }
+      if (clothingItem['category'] === "headwear") {
+        headwear.push({
+          ...clothingItem,
+          id: documentSnapshot.id,
+          color: clothingItem['color'],
+          category: clothingItem['category'],
+          checkBoxArray: clothingItem['checkBoxArray'],
+          bucket: await getStorageDownloadURL(clothingItem['bucket']),
+        });
+      }
+      if (clothingItem['category'] === "sweaters") {
+        sweaters.push({
+          ...clothingItem,
+          id: documentSnapshot.id,
+          color: clothingItem['color'],
+          category: clothingItem['category'],
+          checkBoxArray: clothingItem['checkBoxArray'],
+          bucket: await getStorageDownloadURL(clothingItem['bucket']),
+        });
+      }
+      if (clothingItem['category'] === "pants") {
+        pants.push({
+          ...clothingItem,
+          id: documentSnapshot.id,
+          color: clothingItem['color'],
+          category: clothingItem['category'],
+          checkBoxArray: clothingItem['checkBoxArray'],
+          bucket: await getStorageDownloadURL(clothingItem['bucket']),
+        });
+      }
+      if (clothingItem['category'] === "shoes") {
+        shoes.push({
+          ...clothingItem,
+          id: documentSnapshot.id,
+          color: clothingItem['color'],
+          category: clothingItem['category'],
+          checkBoxArray: clothingItem['checkBoxArray'],
+          bucket: await getStorageDownloadURL(clothingItem['bucket']),
+        });
+      }
+    }
+    setShirts(shirts);
+    setOuterwear(outerwear);
+    setPants(pants);
+    setShoes(shoes);
+    setHeadwear(headwear);
+    setSweaters(sweaters);
+    setisLoadingClothes(false);
   })
   return unsubscribe;
 }
