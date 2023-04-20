@@ -16,6 +16,7 @@ const Recommender = () => {
     const [clothingShirts, setClothingShirts] = useState([]);
     const [clothingPants, setClothingPants] = useState([]);
     const [clothingShoes, setClothingShoes] = useState([]);
+    const [category, setCategory] = useState("shirts");
 
     const [clothingItems, setClothingItems] = useState([]);
     const [count, setCount] = useState(0);
@@ -28,7 +29,7 @@ const Recommender = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const unsubscribe = await getClothingItem(user.uid, setClothingShirts, setClothingPants, setClothingShoes, setClothingOuterwear, setisLoadingClothes);
+            const unsubscribe = await getClothingItem(user.uid, category, setClothingItems, setisLoadingClothes);
             console.log(unsubscribe);
             return () => unsubscribe;
         }
