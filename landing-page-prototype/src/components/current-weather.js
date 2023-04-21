@@ -5,7 +5,7 @@ const CurrentWeather = ({data}) => {
     sessionStorage.setItem("city", data.city);
     sessionStorage.setItem("high", data.main.temp_max);
     sessionStorage.setItem("low", data.main.temp_min);
-    sessionStorage.setItem("description", data.weather[0].main);
+    sessionStorage.setItem("description", data.weather[0].description);
     sessionStorage.setItem("image", data.weather[0].icon);
 
     const imgURL = "https://openweathermap.org/img/wn/";
@@ -15,7 +15,7 @@ const CurrentWeather = ({data}) => {
         <div className="weather">
             <div className="details">
                 <p className="city">{data.city}</p>
-                <p className="description">{data.weather[0].main}</p>
+                <p className="description">{data.weather[0].description}</p>
             </div>
             <div className="details">
                 <p className="temperature">{Math.round(data.main.temp)}°F</p>
