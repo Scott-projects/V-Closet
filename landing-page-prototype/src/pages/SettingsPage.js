@@ -27,6 +27,7 @@ function SettingsPage() {
 
     const handleSignOut = async () => {
         try {
+            sessionStorage.clear();
             logout();
             navigate("/");
         } catch (error) {
