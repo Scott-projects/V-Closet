@@ -71,13 +71,18 @@ function Recommender() {
                                 rainClothes.push(outerwear);
                             }
                         });
+                        const rainItem = rainClothes[0];
+                        if(rainItem){
+                            reccomendedCloths.push(rainItem);
+                        }
+                        
                     }
                 }
                 else if (description.includes("snow")) {
                     setAccessories("Expect snow today, bring some gloves!");
                 }
             }
-            
+
             if (high < 65) {
                 const pant = pants[1];
                 const outerwear = allOuterwear[0];
