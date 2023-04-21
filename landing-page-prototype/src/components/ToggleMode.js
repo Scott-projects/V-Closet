@@ -58,6 +58,9 @@ const ToggleMode = () => {
         .ToAddItem {
           color: ${isDarkMode ? "#f5f5f5" : "#333333"};
         }
+        .clothesBtn:hover {
+          background-color: ${isDarkMode ? "#f5f5f5" : "#333333"};
+        }
       }
       `}
       </style>
