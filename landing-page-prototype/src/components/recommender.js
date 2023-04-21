@@ -10,7 +10,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase";
 import ClothingDisplay from "../components/ClothingDisplay";
 import WeatherValue from "./get-weather";
-import { getStorageDownloadURL } from "../firebase/storage"; 
+import { getStorageDownloadURL } from "../firebase/storage";
 
 function Recommender() {
 
@@ -33,16 +33,12 @@ function Recommender() {
             return () => unsubscribe;
         }
 
-        if (description.includes("rain")) {
-            setAccessories("Expect rain today, you should bring an umbrella!");
-        }
-        else if (description.includes("snow")) {
-            setAccessories("Expect snow today, bring some gloves!");
-        }
 
         if (user) {
             const unsubscribe = fetchData();
             let reccomendedCloths = [];
+            let coldClothes = [];
+            let rainClothes = [];
             console.log("Building Reccomendation");
             console.log(high);
             if (high >= 65) {
@@ -51,18 +47,31 @@ function Recommender() {
                 const shoe = shoes[0];
                 const hat = headwear[0];
                 if (hat) {
-                    reccomendedCloths.push( hat );
+                    reccomendedCloths.push(hat);
                 }
                 if (shirt) {
-                    reccomendedCloths.push( shirt )
+                    reccomendedCloths.push(shirt)
                 }
                 if (pant) {
-                    reccomendedCloths.push( pant )
+                    reccomendedCloths.push(pant)
                 }
                 if (shoe) {
-                    reccomendedCloths.push( shoe );
+                    reccomendedCloths.push(shoe);
                 }
-                
+
+            }
+            if (description.includes("rain")) {
+                setAccessories("Expect rain today, you should bring an umbrella!");
+                if (allOuterwear) {
+                    allOuterwear.forEach((outerwear) => {
+                        if (outerwear.checked) {
+                            rainClothes.push(outerwear);
+                        }
+                    });
+                }
+            }
+            else if (description.includes("snow")) {
+                setAccessories("Expect snow today, bring some gloves!");
             }
             if (high < 65) {
                 const pant = pants[1];
@@ -71,21 +80,21 @@ function Recommender() {
                 const shoe = shoes[1];
                 const hat = headwear[1];
                 if (hat) {
-                    reccomendedCloths.push( hat );
+                    reccomendedCloths.push(hat);
                 }
                 if (sweater) {
-                    reccomendedCloths.push( sweater );
+                    reccomendedCloths.push(sweater);
                 }
                 if (outerwear) {
-                    reccomendedCloths.push( outerwear);;
+                    reccomendedCloths.push(outerwear);;
                 }
                 if (pant) {
-                    reccomendedCloths.push(pant );
+                    reccomendedCloths.push(pant);
                 }
                 if (shoe) {
-                    reccomendedCloths.push( shoe );;
+                    reccomendedCloths.push(shoe);;
                 }
-                
+
             }
             setClothesToDisplay(reccomendedCloths);
             return () => unsubscribe;
@@ -93,7 +102,6 @@ function Recommender() {
         else {
             console.log("Loading Clothes...");
         }
-
     }, [user, isLoadingClothes]);
 
 
