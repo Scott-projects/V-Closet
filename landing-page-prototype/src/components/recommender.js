@@ -33,19 +33,6 @@ function Recommender() {
             return () => unsubscribe;
         }
 
-<<<<<<< HEAD
-=======
-        if (description == null) {
-            setAccessories("Please update your location in the settings menu.")
-        }
-        else if (description.includes("rain")) {
-            setAccessories("Expect rain today, you should bring an umbrella!");
-        }
-        else if (description.includes("snow")) {
-            setAccessories("Expect snow today, bring some gloves!");
-        }
->>>>>>> 22e65e9f1a5f8235c9d8e5cbbd812e8c848ddc4f
-
         if (user && description != null) {
             const unsubscribe = fetchData();
             let reccomendedCloths = [];
@@ -72,18 +59,22 @@ function Recommender() {
                 }
 
             }
-            if (description.includes("rain")) {
-                setAccessories("Expect rain today, you should bring an umbrella!");
-                if (allOuterwear) {
-                    allOuterwear.forEach((outerwear) => {
-                        if (outerwear.checked) {
-                            rainClothes.push(outerwear);
-                        }
-                    });
+            if (description == null) {
+                setAccessories("Please update your location in the settings menu.")
+
+                if (description.includes("rain")) {
+                    setAccessories("Expect rain today, you should bring an umbrella!");
+                    if (allOuterwear) {
+                        allOuterwear.forEach((outerwear) => {
+                            if (outerwear.checked) {
+                                rainClothes.push(outerwear);
+                            }
+                        });
+                    }
                 }
-            }
-            else if (description.includes("snow")) {
-                setAccessories("Expect snow today, bring some gloves!");
+                else if (description.includes("snow")) {
+                    setAccessories("Expect snow today, bring some gloves!");
+                }
             }
             if (high < 65) {
                 const pant = pants[1];
@@ -126,6 +117,7 @@ function Recommender() {
             <div className='wardrobe'>
                 <p>{accessories}</p>
                 <div className="Clothing">
+                    {accessories}
                     {clothesToDisplay.map((clothingItem) => (
                         <div key={clothingItem.id}>
                             <ClothingDisplay clothingItem={clothingItem} />
