@@ -60,14 +60,18 @@ function Recommender() {
 
             }
             if (description === null) {
-                setAccessories("Please update your location in the settings menu.")
+                setAccessories("Please update your location in the settings menu.");
+                console.log("description null")
             }
             else {
                 if (description.includes("rain")) {
+                    console.log("its raining")
                     setAccessories("Expect rain today, you should bring an umbrella!");
                     if (allOuterwear) {
+                        console.log("There is outerwear")
                         allOuterwear.forEach((outerwear) => {
-                            if (outerwear.checked) {
+                            if (outerwear.checkBoxArray[0].checked) {
+                                console.log("outerwear is checked")
                                 rainClothes.push(outerwear);
                             }
                         });
@@ -95,9 +99,9 @@ function Recommender() {
                 if (sweater) {
                     reccomendedCloths.push(sweater);
                 }
-                if (outerwear) {
-                    reccomendedCloths.push(outerwear);;
-                }
+              //  if (outerwear) {
+               //     reccomendedCloths.push(outerwear);;
+              //  }
                 if (pant) {
                     reccomendedCloths.push(pant);
                 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "../styles/WardrobePage.css";
-import { getClothingItem } from "../firebase/firestore";
+import { addToMarket, deleteClothingITem, getClothingItem } from "../firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase";
 import ClothingDisplay from "../components/ClothingDisplay";
@@ -12,7 +12,7 @@ function QueryClothes({ selectedCategory }) {
     const [clothingItems, setClothingItems] = useState([]);
     const [isLoadingClothes, setisLoadingClothes] = useState(true);
     const [isClothingArrayEmpty, setIsClothingArrayEmpty] = useState(false);
-
+    const [clotingID, setClothingID] = useState("");
     useEffect(() => {
         async function fetchData() {
             console.log(user.uid);
@@ -30,6 +30,15 @@ function QueryClothes({ selectedCategory }) {
             console.log("Loading Clothes...");
         }
     }, [user, selectedCategory]);
+
+    const handleAddToMarket = (expectedDefault) => {
+        expectedDefault.preventDefault();
+    }
+
+    //<button onClick={handleAddToMarket(clothingItem.id)} >Add To Market</button>
+
+    //<button onClick={handleDeleteClothingITem}>Delete Clothing Item</button>
+
 
     return ((!user || isLoadingClothes) ?
         <div className="loading-data">
