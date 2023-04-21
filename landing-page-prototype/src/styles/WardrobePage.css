@@ -1,10 +1,46 @@
 .clothingImages {
-    width: 35%;
-    height: auto;
     padding: 0.5%;
+    width: 98%;
+    height: 98%;
+}
+
+.clothesBtn {
+    all: unset;
+    width: 30%;
+    height: auto;
+    margin-bottom: 0.5%;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .Clothing {
     margin-top: 8%;
     text-align: center;
+}
+
+.clothes-container, .image-options {
+    display: inline-block;
+}
+
+.image-options {
+    position: relative;
+    width: 5%;
+}
+
+.image-options button {
+    text-decoration: none;
+    width: 55%;
+    cursor: pointer;
+}
+
+.trashIcon, .priceIcon {
+    font-size: 300%;
+}
+
+.trashIcon {
+    color: red;
+}
+
+.priceIcon {
+    color: green;
 }
