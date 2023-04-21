@@ -7,7 +7,6 @@ import ShapeContainer from "../components/ShapeContainer";
 import QueryClothes from "../components/QueryClothes";
 import { CheckAuthentication } from "../components/CheckAuthentication";
 
-
 function WardrobePage() {
     const [selectedValue, setSelectedValue] = useState('');
 

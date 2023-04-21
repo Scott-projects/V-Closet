@@ -19,7 +19,6 @@ const WeatherValue = () => {
         )
     }
 
-
     return (
         <div className="weather">
             <div className="details">
@@ -35,6 +34,11 @@ const WeatherValue = () => {
             </div>
         </div>
     );
+}
+
+export function getHigh() {
+    let high = sessionStorage.getItem("high");
+    return high;
 }
 
 

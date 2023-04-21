@@ -32,7 +32,7 @@ export async function getClothingItem(uid, category, setClothingItems, setisLoad
       });
     }
     setClothingItems(allClothingItems);
-    setisLoadingClothes(false)
+    setisLoadingClothes(false);
   })
   return unsubscribe;
 }
@@ -110,6 +110,7 @@ export async function getClothingItemsForHomepage(uid, setShirts, setPants, setS
         });
       }
     }
+    console.log(shirts);
     setShirts(shirts);
     setOuterwear(outerwear);
     setPants(pants);

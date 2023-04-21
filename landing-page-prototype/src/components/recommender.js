@@ -12,17 +12,18 @@ import ClothingDisplay from "../components/ClothingDisplay";
 import WeatherValue from "./get-weather";
 import { getStorageDownloadURL } from "../firebase/storage";
 
-const Recommender = () => {
+function Recommender() {
 
     const [user, loading, authError] = useAuthState(auth);
     const [shirts, setShirts] = useState([]);
     const [pants, setPants] = useState([]);
     const [shoes, setShoes] = useState([]);
     const [headwear, setHeadwear] = useState([]);
-    const [outerwear, setOuterwear] = useState([]);
+    const [allOuterwear, setOuterwear] = useState([]);
     const [sweaters, setSweaters] = useState([]);
     const [isLoadingClothes, setisLoadingClothes] = useState(true);
     const [clothesToDisplay, setClothesToDisplay] = useState([]);
+    const high = sessionStorage.getItem("high");
 
     useEffect(() => {
         async function fetchData() {
@@ -31,45 +32,61 @@ const Recommender = () => {
         }
         if (user) {
             const unsubscribe = fetchData();
-            console.log("test");
-            console.log(isLoadingClothes);
-            console.log(shirts[0])
-
-            let recomendedClothes = [];
-            let high = sessionStorage.getItem("high");
-            if (high > 70) {
-                const shirt = shirts.get('1');
-                console.log(shirt);
-                recomendedClothes.push({
-                    ...shirt,
-                    color: shirt['color'],
-                    category: shirt['category'],
-                    checkBoxArray: shirt['checkBoxArray'],
-                    bucket: getStorageDownloadURL(shirt['bucket']),
-                });
-
-                recomendedClothes.push({
-                    ...pants[0],
-                    color: pants['color'],
-                    category: pants['category'],
-                    checkBoxArray: pants['checkBoxArray'],
-                    bucket: getStorageDownloadURL(pants['bucket']),
-                })
+            let reccomendedCloths = [];
+            console.log("Building Reccomendation");
+            console.log(high);
+            if (high >= 65) {
+                const shirt = shirts[0];
+                const pant = pants[0];
+                const shoe = shoes[0];
+                const hat = headwear[0];
+                if (shirt) {
+                    reccomendedCloths.push( shirt )
+                }
+                if (pant) {
+                    reccomendedCloths.push( pant )
+                }
+                if (shoe) {
+                    reccomendedCloths.push( shoe );
+                }
+                if (hat) {
+                    reccomendedCloths.push( hat );
+                }
             }
-            if (high < 50) {
-
+            if (high < 65) {
+                const pant = pants[0];
+                const outerwear = allOuterwear[0];
+                const sweater = sweaters[0];
+                const shoe = shoes[0];
+                const hat = headwear[0];
+                if (sweater) {
+                    reccomendedCloths.push( sweater );
+                }
+                if (outerwear) {
+                    reccomendedCloths.push( outerwear);;
+                }
+                if (pant) {
+                    reccomendedCloths.push(pant );
+                }
+                if (shoe) {
+                    reccomendedCloths.push( shoe );;
+                }
+                if (hat) {
+                    reccomendedCloths.push( hat );
+                }
             }
-            console.log(recomendedClothes);
-            setClothesToDisplay(recomendedClothes);
-            console.log(clothesToDisplay);
+            setClothesToDisplay(reccomendedCloths);
             return () => unsubscribe;
         }
         else {
             console.log("Loading Clothes...");
         }
-    }, [user]);
 
-    return ((!user || isLoadingClothes) ?
+    }, [user, isLoadingClothes]);
+
+
+
+    return ((!user || isLoadingClothes || clothesToDisplay.length === 0) ?
         null
         :
         <div>
@@ -79,6 +96,7 @@ const Recommender = () => {
                     {clothesToDisplay.map((clothingItem) => (
                         <div key={clothingItem.id}>
                             <ClothingDisplay clothingItem={clothingItem} />
+                            {clothingItem.category}
                         </div>)
                     )}
                 </div>
