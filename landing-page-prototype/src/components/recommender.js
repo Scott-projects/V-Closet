@@ -10,7 +10,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase/firebase";
 import ClothingDisplay from "../components/ClothingDisplay";
 import WeatherValue from "./get-weather";
-import { getStorageDownloadURL } from "../firebase/storage";
+import { getStorageDownloadURL } from "../firebase/storage"; 
 
 function Recommender() {
 
@@ -23,23 +23,36 @@ function Recommender() {
     const [sweaters, setSweaters] = useState([]);
     const [isLoadingClothes, setisLoadingClothes] = useState(true);
     const [clothesToDisplay, setClothesToDisplay] = useState([]);
+    const [accessories, setAccessories] = useState("");
     const high = sessionStorage.getItem("high");
+    const description = sessionStorage.getItem("description");
 
     useEffect(() => {
         async function fetchData() {
             const unsubscribe = await getClothingItemsForHomepage(user.uid, setShirts, setPants, setShoes, setHeadwear, setOuterwear, setSweaters, setisLoadingClothes);
             return () => unsubscribe;
         }
+
+        if (description.includes("rain")) {
+            setAccessories("Expect rain today, you should bring an umbrella!");
+        }
+        else if (description.includes("snow")) {
+            setAccessories("Expect snow today, bring some gloves!");
+        }
+
         if (user) {
             const unsubscribe = fetchData();
             let reccomendedCloths = [];
             console.log("Building Reccomendation");
             console.log(high);
             if (high >= 65) {
-                const shirt = shirts[0];
+                const shirt = shirts[1];
                 const pant = pants[0];
                 const shoe = shoes[0];
                 const hat = headwear[0];
+                if (hat) {
+                    reccomendedCloths.push( hat );
+                }
                 if (shirt) {
                     reccomendedCloths.push( shirt )
                 }
@@ -49,16 +62,17 @@ function Recommender() {
                 if (shoe) {
                     reccomendedCloths.push( shoe );
                 }
+                
+            }
+            if (high < 65) {
+                const pant = pants[1];
+                const outerwear = allOuterwear[0];
+                const sweater = sweaters[1];
+                const shoe = shoes[1];
+                const hat = headwear[1];
                 if (hat) {
                     reccomendedCloths.push( hat );
                 }
-            }
-            if (high < 65) {
-                const pant = pants[0];
-                const outerwear = allOuterwear[0];
-                const sweater = sweaters[0];
-                const shoe = shoes[0];
-                const hat = headwear[0];
                 if (sweater) {
                     reccomendedCloths.push( sweater );
                 }
@@ -71,9 +85,7 @@ function Recommender() {
                 if (shoe) {
                     reccomendedCloths.push( shoe );;
                 }
-                if (hat) {
-                    reccomendedCloths.push( hat );
-                }
+                
             }
             setClothesToDisplay(reccomendedCloths);
             return () => unsubscribe;
@@ -92,6 +104,7 @@ function Recommender() {
         <div>
             <TopNavBar />
             <div className='wardrobe'>
+                <p>{accessories}</p>
                 <div className="Clothing">
                     {clothesToDisplay.map((clothingItem) => (
                         <div key={clothingItem.id}>
