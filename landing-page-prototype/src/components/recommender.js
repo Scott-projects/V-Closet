@@ -59,9 +59,10 @@ function Recommender() {
                 }
 
             }
-            if (description == null) {
+            if (description === null) {
                 setAccessories("Please update your location in the settings menu.")
-
+            }
+            else {
                 if (description.includes("rain")) {
                     setAccessories("Expect rain today, you should bring an umbrella!");
                     if (allOuterwear) {
@@ -76,6 +77,7 @@ function Recommender() {
                     setAccessories("Expect snow today, bring some gloves!");
                 }
             }
+            
             if (high < 65) {
                 const pant = pants[1];
                 const outerwear = allOuterwear[0];
@@ -117,7 +119,6 @@ function Recommender() {
             <div className='wardrobe'>
                 <p>{accessories}</p>
                 <div className="Clothing">
-                    {accessories}
                     {clothesToDisplay.map((clothingItem) => (
                         <div key={clothingItem.id}>
                             <ClothingDisplay clothingItem={clothingItem} />
