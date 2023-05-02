@@ -8,7 +8,7 @@ import "../styles/CheckAuthentication.css";
 export const CheckAuthentication = ({ children }) => {
     const [ user, loading, authError] = useAuthState(auth);
     const navigate = useNavigate();
-    //console.log(user);
+
     useEffect(() => {
         if (loading) {
             return;

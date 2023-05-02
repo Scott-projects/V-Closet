@@ -36,7 +36,6 @@ const SignUpSystem = () => {
             try {
                 setLoading(true);
                 await signUpwithEmailAndPassword(email, password);
-                //navigate("/home");
             } catch (e) {
                 if (authError) {
                     alert("There was an error with authentication: " + authError);

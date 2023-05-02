@@ -130,25 +130,15 @@ function AddClothes() {
                                 <option value="brown">Brown</option>
                             </select>
                         </div>
-                        {/* <p>You selected: {selectedColor} </p> */}
-                        {/* image result: {image && <img src={saveImage} alt="Uploaded (Test)" />} */}
 
                         <div className="add-suitability">
                             <h3>Suitability</h3>
-                            {/* <input type="checkbox" name="rain" id="rain" value="rain" />
-                            <label for="rain"> Rain</label> <br />
-                            <input type="checkbox" name="cold" id="cold" value="cold" />
-                            <label for="cold"> Cold</label> <br /> */}
                             {checkboxes.map((checkbox, index) => (
                                 <label key={index}>
                                     <input type="checkbox" checked={checkbox.checked} onChange={() => handleSuitabilityChange(index)} />
                                     {" "}{checkbox.label} <br />
                                 </label>
                             ))}
-
-                            {/* {selectedOptions.length > 0 && (
-                                <p>You selected: {selectedOptions.join(", ")}</p>
-                            )} */}
                         </div>
 
                         <div className="add-description">

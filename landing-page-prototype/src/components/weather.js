@@ -14,7 +14,6 @@ export function getUserLocation(){
                             console.log(weatherURL.shortForecast)});
                         
     }
-    
 
     // Failure
     function handleError() { 
@@ -25,7 +24,6 @@ export function getUserLocation(){
             let error = 'We encountered an error in retrieving your location, please re-try.'
         }
     }
-    //TODO return weather information foo
 
 
 }

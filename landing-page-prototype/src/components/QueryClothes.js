@@ -35,11 +35,6 @@ function QueryClothes({ selectedCategory }) {
         expectedDefault.preventDefault();
     }
 
-    //<button onClick={handleAddToMarket(clothingItem.id)} >Add To Market</button>
-
-    //<button onClick={handleDeleteClothingITem}>Delete Clothing Item</button>
-
-
     return ((!user || isLoadingClothes) ?
         <div className="loading-data">
             <ImSpinner2 className='load-spin' />

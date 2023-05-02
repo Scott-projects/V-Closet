@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BiTrashAlt } from "react-icons/bi";
 import {RiPriceTag3Line } from "react-icons/ri";
+import { deleteClothingITem } from "../firebase/firestore";
 import '../styles/WardrobePage.css'
 
 function ClothingDisplay(props) {
@@ -12,7 +13,7 @@ function ClothingDisplay(props) {
     }
 
     function handleDelete() {
-
+        // deleteClothingITem(uid, id);
     }
 
     function handleListItem() {
