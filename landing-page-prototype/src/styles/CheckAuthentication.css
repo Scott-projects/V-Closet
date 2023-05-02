@@ -1,0 +1,22 @@
+.load-background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: lightgray;
+}
+
+.load-spin {
+    font-size: 500%;
+    animation: spin 5s infinite linear;
+    animation-duration: 1s;
+}
+
+@keyframes load-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

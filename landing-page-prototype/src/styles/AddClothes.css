@@ -1,0 +1,66 @@
+.add-clothes-form {
+    margin-top: -2%;
+    margin-left: 20%;
+    margin-right: 15%;
+    padding-bottom: 2%;
+}
+
+.add-image-container, .add-clothes-information {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.add-image-container {
+    width: 35%;
+    margin-top: 3%;
+    margin-right: 20%;
+}
+
+.add-clothes-information h3{
+    font-weight: 100;
+    letter-spacing: 0.0em;
+}
+
+.add-clothes-information {
+    font-size: 140%;
+    margin-top: 1%;
+}
+
+.add-category, .add-color, .add-suitability, .add-description {
+    margin-bottom: 5%;
+}
+
+.add-clothes-information select {
+    font-size: 100%;
+    letter-spacing: 0.1em;
+    font-weight: 200;
+
+}
+
+.add-clothes-information option:hover {
+    background-color: green;
+}
+
+.add-messagebox {
+    padding: 2%;
+    text-align: left;
+    resize: none;
+}
+
+.add-clothes-information option[value="red"] { background-color: red; }
+
+.add-clothes-information option[value="orange"] { background-color: orange; }
+
+.add-clothes-information option[value="yellow"] { background-color: yellow; }
+
+.add-clothes-information option[value="green"] { background-color: green; }
+
+.add-clothes-information option[value="blue"] { background-color: blue; } 
+
+.add-clothes-information option[value="purple"] { background-color: purple; }
+
+.add-clothes-information option[value="black"] { background-color: black; color: white;}
+
+.add-clothes-information option[value="gray"] { background-color: gray;}
+
+.add-clothes-information option[value="brown"] { background-color: brown;}

@@ -1,0 +1,43 @@
+.navbar-menu {
+    padding-top: 1%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+
+.navbar-nav {
+    font-size: 4.5vw;
+    width: 100%;
+    list-style: none;
+}
+
+.homeIcon, .settingsIcon, .clothesIcon, .shopIcon {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.navbar-nav > .navbar-home, .navbar-gear, .navbar-toggle, .navbar-clothes, .navbar-weather, .navbar-shop {
+    display: inline-block;
+}
+
+.navbar-weather {
+    margin-left: 1%;
+    vertical-align: top;
+    width: 20%;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+}
+
+.navbar-home {
+    margin-left: 1%;
+    height: 1em;
+    overflow: hidden;
+}
+
+.navbar-gear, .navbar-clothes, .navbar-toggle, .navbar-shop {
+    float: right;
+    margin-right: 1%;
+    height: 1em;
+    overflow: hidden;
+}

@@ -1,0 +1,100 @@
+.form-group label, .submitSignUp, .googleSignUp, .registerToLogin, .linkToLogin {
+    font-family: Impact, 'Arial Narrow Bold';
+}
+
+input[name="email"],
+input[name="password"],
+input[name="passwordCheck"] {
+    background-color: transparent;
+    color: #f5f5f5b7;
+    font-size: 1.25vw;
+    border: none;
+    border-color: transparent;
+    border-bottom: 1px solid gray;
+    width: 98%;
+    letter-spacing: 0.15em;
+
+}
+
+input[name="email"]:focus,
+input[name="password"]:focus,
+input[name="passwordCheck"]:focus {
+    box-shadow: 0px 0px 5px 5px silver;
+}
+
+.form-group {
+    display: block;
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 150%;
+    padding: 2%;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1.5vw;
+}
+
+
+.submitSignUp,
+.googleSignUp {
+    color: #ffffffea;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.5vw;
+    padding: 10px 5%;
+    margin-top: 5%;
+    margin-right: 2%;
+    width: 95%;
+    text-align: center;
+}
+
+.submitSignUp:hover,
+.googleSignUp:hover {
+    text-decoration: none;
+    background-color: white;
+    color: black;
+}
+
+.submitSignUp:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.FaGoogle {
+    padding-right: 3%;
+    font-size: 90%;
+}
+
+.registerToLogin {
+    margin-top: 10%;
+    font-size: 1vw;
+    color: #ffffffea;
+    letter-spacing: 0.05em;
+}
+
+.linkToLogin {
+    color: #ffffffea;
+}
+
+.linkToLogin:hover {
+    color: #ffffffad;
+}
+
+.spin {
+    animation: spin 5s infinite linear;
+    animation-duration: 1s;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,13 @@
+.image-container input, .image-container img {
+    display: block;
+}
+
+
+.image-container input {
+    padding-bottom: 2%;
+}
+
+.image-container img {
+    max-width: 97%;
+    height: auto;
+}
