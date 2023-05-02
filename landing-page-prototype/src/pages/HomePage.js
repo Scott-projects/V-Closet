@@ -15,7 +15,7 @@ function HomePage() {
             <div className="home">
                 <TopNavBar />
                 <ShapeContainer color="" />
-                <h1 className="home-text">Welcome back</h1>
+                <h1 className="home-text">Welcome back, {nickname}</h1>
                 <div className="recommend-text">
                     <Recommender />
                 </div>
