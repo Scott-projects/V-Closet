@@ -121,9 +121,11 @@ function SettingsPage() {
 
                             <div className="about-history">
                                 <h2 className="history-text">Our History</h2>
-                                <p className="history-p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
-                                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
-                                    pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. </p>
+                                <p className="history-p">
+                                As a trio of college students from Austin Peay State University in group 3, we embarked on a semester-long project that involved bringing a unique concept to life. 
+                                Our brainstorming led us to the idea of creating a virtual closet website, which we believed no one had ever attempted before. 
+                                With the aim of transforming this innovative concept into a tangible reality, we are thrilled to introduce V-Closet, the culmination of our efforts.
+                                </p>
                             </div>
                         </div>
                     )}
