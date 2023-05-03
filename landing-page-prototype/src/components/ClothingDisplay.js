@@ -1,23 +1,26 @@
 import React, { useState } from "react";
 import { BiTrashAlt } from "react-icons/bi";
 import {RiPriceTag3Line } from "react-icons/ri";
-import { deleteClothingITem } from "../firebase/firestore";
+import { addToMarket, deleteClothingItem } from "../firebase/firestore";
 import '../styles/WardrobePage.css'
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../firebase/firebase";
 
 function ClothingDisplay(props) {
     const [showOptions, setShowOptions] = useState(false);
     const clothingItem = props.clothingItem;
+    const [user] = useAuthState(auth);
 
     function handleImageClick() {
         setShowOptions(!showOptions);
     }
 
     function handleDelete() {
-        // deleteClothingITem(uid, id);
+        deleteClothingItem(user.uid, clothingItem.id);
     }
 
     function handleListItem() {
-
+        addToMarket(user.uid, clothingItem.id);
     }
 
     return (

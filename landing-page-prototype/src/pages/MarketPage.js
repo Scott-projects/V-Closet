@@ -17,8 +17,9 @@ function MarketPage() {
 
     useEffect(() => {
         async function fetchData() {
-            const unsubscribe = await getAllMarketItems(setClothingItems, setisLoadingClothes);
-            console.log(unsubscribe);
+            const unsubscribe = await getAllMarketItems(user.uid, setClothingItems, setisLoadingClothes);
+            console.log(clothingItems)
+            //console.log(unsubscribe);
             return () => unsubscribe;
         }
         if (user) {
@@ -28,7 +29,7 @@ function MarketPage() {
         else {
             console.log("Loading Clothes...");
         }
-    }, [user]);
+    }, [user, isLoadingClothes]);
 
     return ((!user || isLoadingClothes) ?
         <div className="loading-data">

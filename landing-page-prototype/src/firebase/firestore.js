@@ -123,7 +123,7 @@ export async function getClothingItemsForHomepage(uid, setShirts, setPants, setS
 }
 
 
-export async function deleteClothingITem(uid, id) {
+export async function deleteClothingItem(uid, id) {
   deleteDoc(doc(db, uid, id));
 }
 
@@ -134,8 +134,8 @@ export async function addToMarket(uid, id) {
   });
 }
 
-export async function getAllMarketItems(setClothingItems, setisLoadingClothes) {
-  const clothingQuery = query(collection(db), where("forSale", "==", true));
+export async function getAllMarketItems(uid, setClothingItems, setisLoadingClothes) {
+  const clothingQuery = query(collection(db, uid), where("forSale", "==", true));
 
   const unsubscribe = onSnapshot(clothingQuery, async (snapshot) => {
     let allClothingItems = [];

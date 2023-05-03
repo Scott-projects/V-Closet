@@ -116,7 +116,7 @@ function Recommender() {
         else {
             console.log("Loading Clothes...");
         }
-    }, [user, isLoadingClothes]);
+    }, [user]);
 
 
 
